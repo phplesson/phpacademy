@@ -6,7 +6,7 @@
  * Time: 7:47 PM
  */
 
-var_dump($argv);
+//var_dump($argv);
 
 if ($argc == 1 or $argc > 4) {
 echo "Usage of primitive calculator:
