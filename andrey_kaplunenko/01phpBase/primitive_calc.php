@@ -48,8 +48,11 @@ echo "\nUsage of primitive calculator:
         echo "RESULT >> ".$result."\n";
     } elseif ($operator == "div")
     {
-        $result = $first_arg/$second_arg;
-        echo "RESULT >> ".$result."\n";
+        if ($second_arg!=0){
+            $result = $first_arg/$second_arg;
+            echo "RESULT >> ".$result."\n";
+        } else echo "Error: Division by 0!\n";
+
     } else echo "Unknown operator. Only add, sub, mult, div are supported.\n";
 }
 
