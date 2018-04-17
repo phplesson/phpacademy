@@ -8,8 +8,8 @@
 
 //var_dump($argv);
 
-if ($argc == 1 or $argc > 4) {
-echo "Usage of primitive calculator:
+if ($argc!=4) {
+echo "\nUsage of primitive calculator:
     put arguments and operators as command line parameters.
     [first_argument] [operator] [second argument]
     Example: 22 add 4
@@ -54,4 +54,4 @@ echo "Usage of primitive calculator:
 }
 
 
-echo "\nThank you for using primitive calc! Bye!\n";
+echo "\nThank you for using primitive calc! Bye!\n\n";
