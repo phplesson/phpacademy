@@ -1,0 +1,39 @@
+* {
+    font-family: "sans-serif";
+    background-color: white;
+    text-align: left
+}
+
+.a4 {
+    background-color: white
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0.5cm;
+    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.83);
+    width: 21cm;
+}
+
+.about_me {
+}
+
+.content {
+    padding: 20px 20px 20px 20px;
+    display: block;
+}
+
+.main_info {
+    float: left;
+    display: block;
+}
+
+.photo {
+    float: right;
+    display: block;
+    width: 280px;
+    height: 280px;
+}
+
+.skills {
+    display: block;
+    float: left
+}
