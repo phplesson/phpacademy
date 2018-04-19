@@ -1,0 +1,80 @@
+.kod1
+{
+    border: 3px dashed slateblue;
+    width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: "Franklin Gothic Medium", serif;
+    text-shadow: 0 0 1em teal;
+}
+
+
+
+.kod2
+{
+    color:teal;
+    font-size: 75%
+}
+
+
+.kod3
+{margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 2%;
+    font-family: "monospace", Serif;
+    font-weight: 900;
+}
+
+
+
+.kod4
+{
+    border-radius: 130px;
+    border: 3px solid #0000fa;
+    box-shadow: 0 0 0;
+
+}
+
+
+
+.kod5:hover
+{
+    -moz-transform: rotate(360deg); /* Для Firefox */
+    -ms-transform: rotate(360deg); /* Для IE */
+    -webkit-transform: rotate(360deg); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate(360deg); /* Для Opera */
+    transform: rotate(360deg);
+    transition: 3s;
+
+}
+
+
+
+
+
+
+
+.aaa1:link
+{
+    color:royalblue;
+    padding: 1px;
+}
+
+.aaa1:hover {
+    background: red;
+    color: yellow;
+}
+
+
+
+body
+{
+    background-color:lightgray;
+}
+
+
+.right {float:right;}
+.left {float:left;}
+
+
+
