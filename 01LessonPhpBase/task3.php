@@ -12,3 +12,23 @@
  *    тоже надо учесть, что уже после разбавления колой, крепость может получиться ниже Б
  *    или равной Б
  */
+
+define('ALCOHOL', 500); // amount of alco
+$options = getopt('a:b:');
+
+$a = $options['a']; // alco grad without cocacola
+$b = $options['b']; // limit of alcohol grad
+
+$alcoCola = ALCOHOL * 2; //amount alco whith cola
+$alcoColaGrad = $a/2; // alco grad with cola
+
+
+if($alcoColaGrad <= $b){
+    $amountOfIce = "We cant use any ice!";
+} else {
+    $amountOfIce = round(($alcoColaGrad/$b)*$alcoCola - $alcoCola);
+}
+
+echo $amountOfIce . PHP_EOL;
+
+
