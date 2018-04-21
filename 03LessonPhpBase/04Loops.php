@@ -13,7 +13,12 @@
  * 
  * do { ... } while(<expr>);
  */
+$array = ['a', 'b', 'c', 'd'];
 
+for($j = 0; $j < count($array); $j++){
+    echo $array[$j] . PHP_EOL;
+}
+echo PHP_EOL;echo PHP_EOL;
 
 for($i = 0; $i <= 10; $i++) {
     echo "$i, ";
@@ -45,3 +50,4 @@ do {
 }while($i <= 10);
 
 echo PHP_EOL;
+

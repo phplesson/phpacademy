@@ -9,12 +9,12 @@
 /*
  * for loop
  *
- * for(<expr1>; <expr2>; <expr3>) {
- *      <some code>;
- * } 
+ * some code>;
+ * }for(<expr1>; <expr2>; <expr3>) {
+ *      <
  */
 
-for ($i = 0; $i < 10; $i ++) {
+for ($i = 0; $i < 10; $i++) {
     echo $i . ', ';
 }
 
@@ -24,7 +24,7 @@ echo PHP_EOL;
 
 for ($i = 0; $i < 10;) {
     echo $i . ', ';
-    $i ++;
+    $i++;
 }
 
 echo PHP_EOL;
@@ -34,7 +34,7 @@ echo PHP_EOL;
 $i = 0;
 for (; $i < 10;) {
     echo $i . ', ';
-    $i ++;
+    $i++;
 }
 
 echo PHP_EOL;
@@ -51,7 +51,7 @@ for (;;) {
     
     echo $i . ', ';
     
-    $i ++;    
+    $i++;
 }
 
 echo PHP_EOL;
@@ -68,12 +68,6 @@ for($i = 0, $j = 0, $k = 0; $i < 10 && $j < 10 && $k < 10; $i++, $j++, $k++) {
 echo PHP_EOL;
 echo PHP_EOL;
 echo PHP_EOL;
-
-
-
-
-
-
 
 
 
@@ -107,8 +101,6 @@ echo PHP_EOL;
 
 
 
-
-
 for($i = 1; $i < 100; $i++) {
     
     $simple = true;
@@ -134,3 +126,5 @@ for($i = 1; $i < 100; $i++) {
 }
 
 echo PHP_EOL;
+
+exit();

@@ -18,7 +18,7 @@ $arrayProductFilter = array('product1', 'product2', 'product3');
 
 
 $arrayPhrases = [];
-//or $arrayPhrases = array();
+$arrayPhrases = array();
 
 $arrayPhrases[0] = 'Hello world';
 $arrayPhrases[1] = 'Main data';
@@ -41,12 +41,13 @@ echo PHP_EOL . PHP_EOL;
 
 
 
-
-
 echo "Array with print_r and echo" . PHP_EOL;
 print_r($arrayPhrases);
 echo $arrayPhrases;
 echo PHP_EOL . PHP_EOL;
+
+
+
 
 
 
@@ -58,6 +59,7 @@ $arrayPrices = array(
     'product3'  => 10.87,
     'product4'  =>  5.00,
 );
+
 
 
 $arrayOrder = [];
@@ -116,7 +118,6 @@ echo PHP_EOL . PHP_EOL;
 
 
 
-
 $arrayInteresting = [-2 => 'first', 'second', 'third'];
 
 echo '$arrayInteresting' . PHP_EOL;
@@ -136,3 +137,4 @@ $arrayInteresting = [10 => 'first', 'second', 'third'];
 echo '$arrayInteresting' . PHP_EOL;
 var_dump($arrayInteresting);
 echo PHP_EOL . PHP_EOL;
+
