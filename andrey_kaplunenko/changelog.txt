@@ -1,2 +1,4 @@
+[23.04.2018]
+Добавлен файл 03phpBase/goto_for_cycles.php где для организации циклов вместо FOR/DO-WHILE использован оператор безусловного перехода GOTO.
 [22.04.2018]
 Добавлены задачи по основам php с 1 по 12. Папка php_basics_tasks. Список условий отсюда: https://github.com/oleg-shumar/php-academy.kiev.ua/blob/master/php_basics_tasks/index.html
