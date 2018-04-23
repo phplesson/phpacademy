@@ -16,6 +16,10 @@ if (is_numeric($a) && is_numeric($b)) {
 			$mult = $a * $b;
 			echo $mult;
 	} elseif ($c == "div") {
+			if ($b == 0) {
+				echo "You can not divide it by zero\n";
+					exit();
+			}
 			$div = $a / $b;
 			echo $div;
 	} else {
