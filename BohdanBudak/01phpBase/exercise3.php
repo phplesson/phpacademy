@@ -11,7 +11,7 @@ $height = 10;
 $distance = 0.5;
 $Mass = 2;
 
-$Force = $Mass * GRAVITY_G * $height;
-$Action = $Force * $distance;
+$Energy = $Mass * GRAVITY_G * $height;
+$Force = $Energy / $distance;
 
-echo "Сила сопротевления = $Action";
+echo "Сила сопротевления = $Force";
