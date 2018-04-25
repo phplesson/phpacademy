@@ -1,0 +1,101 @@
+body {
+	font-family:  Arial, Webdings, sans-serif;
+	color: #2C2C2C;
+	width: 70%;
+	box-shadow: 0 0 10px 10px lightgrey;
+	margin: 10px auto;
+	
+}
+
+header, footer, nav, section {
+	box-sizing: border-box;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	border: 0px dotted red;
+	padding: 10px;
+	background-color: #D9E2D7;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+	display: block;
+}
+
+header h1 {
+	color: #8D918A;
+	font-style: italic;
+	font-size: 40px;
+	width: 50%;
+	margin: 20px auto;
+	border-bottom: 3px solid #A4A9A1;
+}
+
+nav {
+	text-align: center;
+}
+ul {
+	list-style: none;
+	padding: 0;
+	position: relative;
+}
+
+li {
+	display: inline-block;
+	padding: 5px;
+	font-size: 18px;
+	width: 100px;
+	font-weight: bold;
+	
+	
+}
+li + li {
+	margin-left: 75px;
+}
+.under li {
+	position: absolute;
+	top: 0;
+	left: 0;
+	visibility: hidden;
+	
+}
+li:hover {
+	cursor: pointer;
+	color: white;
+	background-color:#789167;
+}
+.list > li:hover .under li {
+	visibility: visible;
+	top: 5px;
+	left: 0;
+	margin-left: -5px;
+}
+
+p {
+	text-align: justify;
+	text-indent: 10px;
+}
+p::first-letter {
+	font-weight: bold;
+	font-size: 20px;
+	color: red;
+	text-decoration: underline;
+}
+img {
+	margin: 15px 100px;
+	
+}
+
+footer a {
+	color: black;
+	font-weight: bold;
+	display: block;
+	width: 20%;
+	margin: 5px auto;
+	text-align: center;
+}
+footer a:hover {
+	color: white;
+	background-color:#789167;
+}
