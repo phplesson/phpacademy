@@ -1,0 +1,9 @@
+#This file is needed for exclude some files from git system
+
+
+
+#include everything with the name starting dot-symbol
+.*
+
+#excluding .gitignore file
+!.gitignore
