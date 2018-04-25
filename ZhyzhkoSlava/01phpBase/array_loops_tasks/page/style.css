@@ -1,0 +1,47 @@
+#nav8, #nav8 ul, #nav8 li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+#nav8, #nav8 ul {
+  background: rgb(46,95,122);
+}
+#nav8 {
+  border-spacing: 0 0;
+  position: relative;
+  z-index: 50;
+  width: 100%;
+}
+#nav8 ul {
+  position: absolute;
+  display: none;
+}
+#nav8 td:hover ul {
+  display: block;
+}
+#nav8 ul li {
+  list-style: none;
+}
+#nav8 .right {
+  direction: rtl;
+}
+#nav8 .right ul {
+  right: 0;
+}
+#nav8 .right li {
+  direction: ltr;
+}
+#nav8 a {
+  display: block;
+  padding: 3px 0;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+#nav8 ul a {
+  padding: 3px 15px;
+  text-align: left;
+}
+#nav8 td:hover, #nav8 li:hover {
+  background: rgb(96,145,172);
+}
