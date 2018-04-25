@@ -1,0 +1,210 @@
+@font-face {
+    font-family: CaptionFont;
+    src: url(11731.otf);
+}
+@font-face {
+    font-family: TextFont;
+    src: url(11298.ttf);
+}
+.cap-font{
+    font-family: CaptionFont;
+}
+.text-font{
+    font-family: TextFont;
+
+}
+.container{
+    height: 1200px;
+    width: 800px;
+    background: #3f3f41;
+    margin-left: 8%;
+}
+.header{
+    height: 200px;
+    width: 800px;
+}
+.education{
+    height: 200px;
+    width: 300px;
+    float:left;
+}
+.edu{
+    height: 30px;
+    width: 250px;
+    background: #ffc916;
+    margin-top: 150px;
+}
+.edu > img{
+    height: 25px;
+    width: 25px;
+    margin-left: 90px;
+    margin-top: 3px;
+}
+.edu > div{
+    height: 30px;
+    float: right;
+    margin-top: 7px;
+    margin-right: 10px;
+}
+.profile{
+    height: 200px;
+    width: 500px;
+    float: right;
+}
+.prof{
+    height: 30px;
+    width: 250px;
+    background: #ffc916;
+    margin-top: 20px;
+    float: right;
+}
+.prof > img{
+    height: 18px;
+    width: 18px;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+.prof > div{
+    height: 30px;
+    float: right;
+    margin-right: 165px;
+    margin-top: 6px;
+}
+.profile-text{
+    height: 250px;
+    width: 500px;
+    float: right;
+    color: white;
+    margin-right: 10px;
+}
+.rec{
+    height: 50px;
+    width: 50px;
+    background: #ffc916;
+    float: left;
+    margin-left: 15px;
+    margin-top: 1px;
+}
+.caption-font{
+    text-align: center;
+    font-size: 13px;
+    line-height: 10px;
+}
+.school-text{
+    color: white;
+    font-size: 12px;
+}
+.school{
+    height: 50px;
+    width: 385px;
+    float: left;
+    font-size: 11px;
+}
+.education-add{
+    height: 55px;
+    width: 770px;
+}
+.edu-line{
+    height: 5px;
+    width: 770px;
+    background: #ffc916;
+    margin-left: 15px;
+}
+
+
+#down-figure {
+    position: absolute;
+    width: 285px;
+    background: #6d6c6f;
+    padding: 10px;
+    border-radius: 100px 100px 0px 0;
+    height: 720px;
+    margin-left: 15px;
+    margin-top: 110px;
+}
+#upper-figure {
+    position: relative;
+    left: 68px;
+    top: 30px;
+    width: 200px;
+    background: #ffc916;
+    height: 200px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 100px;
+}
+
+.left-info{
+    height:500px;
+    width: 300px;
+    float: left;
+}
+.name-zone{
+    height: 30px;
+    width: 250px;
+    background: #ffc916;
+    margin-left: 50px;
+}
+.name{
+    margin-top: 120px;
+    margin-left: 10px;
+    color: white;
+}
+.personal{
+    margin-left: 10px;
+    color: white;
+}
+.right-info{
+    width: 500px;
+    float: left;
+    margin-top: 120px;
+}
+.line-style{
+    height: 30px;
+    width: 500px;
+    background: #ffc916;
+}
+.date{
+    height:100px;
+    width:120px;
+    float: left;
+    margin-left: 30px;
+    color: white;
+}
+.date-text{
+    height: 200px;
+    width: 420px;
+    color:white;
+}
+.prog-style{
+    height:100px;
+    width:120px;
+    float: left;
+    margin-left: 30px;
+    color: white;
+}
+.prog-mark{
+    height: 100px;
+    width: 380px;
+    color:white;
+}
+.cert-style{
+    height:70px;
+    width: 500px;
+    float: left;
+    margin-left: 30px;
+    margin-top: 10px;
+    color: white;
+}
+.job-style{
+    height:200px;
+    width:80px;
+    float: left;
+    margin-left: 30px;
+    color: white;
+}
+
+.clear{
+    clear:both;
+    float:none;
+}
