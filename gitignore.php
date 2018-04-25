@@ -1,1 +1,1 @@
-$echo ".idea/*" >> .gitignore
+$echo ".idea/" >> .gitignore
