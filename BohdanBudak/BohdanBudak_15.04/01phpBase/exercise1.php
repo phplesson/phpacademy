@@ -18,7 +18,7 @@ if ($action == "add"){
     $result = $firstNumber * $secondNumber;
 } elseif ($action == "div" && $firstNumber != 0 && $secondNumber != 0) {
     $result = $firstNumber / $secondNumber;
-} elseif ($action != "add" && $action != "add" && $action != "sub" && $action != "mult" && $action != "div" ){
+} elseif ($action != "add" && $action != "sub" && $action != "mult" && $action != "div" ){
     echo "Error! This action doesn`t exist!";
 } else {
     echo "Error! You cannot divive by zero!";
