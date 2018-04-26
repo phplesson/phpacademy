@@ -8,6 +8,7 @@
 
 //error_reporting(E_USER_NOTICE);
 error_reporting(0xffffffff);
-include('include/process-error.php');
+//include('include/process-error.php');
 
 include('include/error.php');
+

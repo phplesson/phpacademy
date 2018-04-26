@@ -7,7 +7,7 @@
  */
 
 
-set_error_handler('errorHandler1', 0xffffffff);
+$a = set_error_handler('errorHandler2', 0xffff);
 
 function errorHandler1($errno, $errstr, $errfile, $errline, $errcontext) {
 
@@ -23,7 +23,7 @@ function errorHandler1($errno, $errstr, $errfile, $errline, $errcontext) {
 //    echo var_dump($errcontext);
     echo PHP_EOL . PHP_EOL;
     
-    return true;
+    return false;
 
 }
 
@@ -50,6 +50,7 @@ function errorHandler2($errno, $errstr, $errfile, $errline, $errcontext) {
 //    echo var_dump($errcontext);
     echo PHP_EOL . PHP_EOL;
 
+    return true;
 }
 
 function errorHandler3($errno, $errstr, $errfile, $errline, $errcontext) {

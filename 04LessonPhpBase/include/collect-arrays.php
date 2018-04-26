@@ -8,6 +8,7 @@
 
 $array = [];
 
+$possible = ['_GET', '_POST', '_REQUEST', '_SERVER', '_SESSION', '_COOKIE', 'argc', 'argv'];
 $possible = ['_GET', '_POST', '_REQUEST', '_SERVER', '_SESSION', '_COOKIE', '_ENV', 'argc', 'argv'];
 
 foreach ($possible as $arrName) {

@@ -7,6 +7,7 @@
  */
 
 error_reporting(E_ALL);
+error_reporting(E_NOTICE | E_USER_ERROR);
 //error_reporting(0);
 
 //@include('include/error.php');

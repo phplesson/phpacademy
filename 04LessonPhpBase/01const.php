@@ -10,6 +10,7 @@ include('include/eol.php');
 
 include ('include/magic-const.php');
 
+
 $magicArrays=include('include/collect-arrays.php');
 
 if (php_sapi_name() === 'cli') {

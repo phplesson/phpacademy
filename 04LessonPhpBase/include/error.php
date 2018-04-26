@@ -39,7 +39,7 @@ $b = 100;
 
 if ($a == 0) {
 //    trigger_error('can not divide by zero', E_USER_ERROR);
-    trigger_error('can not divide by zero', E_USER_NOTICE);
+    trigger_error('can not divide by zero', E_USER_);
 } else {
     echo 'a/b = ' . ($a / $b) . PHP_EOL;
 }

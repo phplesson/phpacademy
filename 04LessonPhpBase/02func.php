@@ -19,8 +19,9 @@ function <func_name>() {
 
 
 // echo <something> . PHP_EOL;
-
+$var = 10;
 function el() {
+    $var =2 ;
     echo PHP_EOL;
 }
 
@@ -32,6 +33,8 @@ el();
 
 echo "----------END EXAMPLE 1 ----------------";
 el();
+
+
 
 
 
@@ -247,6 +250,7 @@ function echoLnC2($s, $count) {
     echo str_repeat(PHP_EOL, $count);
 }
 
+
 function echoLnCD3($s, $count = 1) {
     echoLnC2($s, $count);
 }
@@ -333,7 +337,7 @@ echo addNewLine("Hello world!");
 
 echoLn("----------END EXAMPLE 9.2 ----------------");
 //---------------------------------------
-
+exit();
 
 echo "3 + 2 = 5" . PHP_EOL;
 saySumAnswer(3, 2);
