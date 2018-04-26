@@ -1,0 +1,20 @@
+[26.04.2018]
+Добавлены задачи по массивам и циклам [26.php-28.php] Папка arrays_loops_tasks.
+[25.04.2018]
+Добавлены задачи по массивам и циклам [21.php-25.php] Папка arrays_loops_tasks.
+[25.04.2018]
+Добавлены задачи по массивам и циклам [17.php-20.php] Папка arrays_loops_tasks.
+[25.04.2018]
+Добавлены задачи по массивам и циклам [14.php-16.php] Папка arrays_loops_tasks.
+[24.04.2018]
+Добавлены задачи по массивам и циклам [04.php-13.php] Папка arrays_loops_tasks.
+[24.04.2018]
+Добавлены задачи по массивам и циклам [01.php-03.php]. Папка arrays_loops_tasks. Список задач отсюда: https://github.com/oleg-shumar/php-academy.kiev.ua/blob/master/arrays_loops_tasks/index.html
+[24.04.2018]
+В файл 03phpBase/from_FOR_to_WHILE.php добавлен более наглядный алгоритм поиска простых чисел. Использован цикл FOR, операторы BREAK и CONTINUE.
+[24.04.2018]
+Добавлен файл 03phpBase/from_FOR_to_WHILE.php в котором проделано упражнение по переходу от циклов FOR к циклам WHILE. Вывод из упражнения такой - если счетчик (i/j) нужно итеративно изменять, и начальное значение счетчика известно, то наиболее аккуратно и компактно выглядит цикл FOR.
+[23.04.2018]
+Добавлен файл 03phpBase/goto_for_cycles.php где для организации циклов вместо FOR/DO-WHILE использован оператор безусловного перехода GOTO.
+[22.04.2018]
+Добавлены задачи по основам php с 1 по 12. Папка php_basics_tasks. Список условий отсюда: https://github.com/oleg-shumar/php-academy.kiev.ua/blob/master/php_basics_tasks/index.html
