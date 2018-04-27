@@ -10,37 +10,66 @@
 </head>
 <body>
 <div class="container">
-    <div class="sidebar">
-	<ul>
-    <li><a href=#>04DZ (26.04.2018)</a>
-        <ul>
-            <li><a href=#>Студент 1</a>
-            <ul>
-	            <li><a href=#>Задача 1</a></li>
-	            <li><a href=#>Задача 2</a></li>
-	            <li><a href=#>Задача 3</a></li>
-            </ul>
-            </li>
-            <li><a href=#>Студент 2</a>
-            <ul>
-	            <li><a href=#>Задача 1</a></li>
-	            <li><a href=#>Задача 2</a></li>
-	            <li><a href=#>Задача 3</a></li>
-            </ul>
-            </li>
-            <li><a href=#>Студент 3</a>
-            <ul>
-	            <li><a href=#>Задача 1</a></li>
-	            <li><a href=#>Задача 2</a></li>
-	            <li><a href=#>Задача 3</a></li>
-            </ul>
-            </li>
-        </ul>
-    </li>    
-	</ul>
-    </div>
-    <div class="content">
+    <nav class="menu">
+        <input type="checkbox" id="menu">
+        <label for="menu" id="nav-icon">
+            &#9776;
+            <span>Menu</span>
+        </label>
 
+        <div class="multi-level">
+            <div class="item">
+                <input type="checkbox" id="homeWork">
+                <img src="img/Arrow.png" class="arrow">
+                <label for="homeWork">04DZ (26.04.2018)</label>
+                <ul>
+                    <li>
+                        <div class="sub-item">
+                            <input type="checkbox" id="student1">
+                            <img src="img/Arrow.png" class="arrow">
+                            <label for="student1">Студент 1</label>
+                            <ul>
+                                <li><a href="#">Задача 1</a></li>
+                                <li><a href="#">Задача 2</a></li>
+                                <li><a href="#">Задача 3</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sub-item">
+                            <input type="checkbox" id="student2">
+                            <img src="img/Arrow.png" class="arrow">
+                            <label for="student2">Студент 1</label>
+                            <ul>
+                                <li><a href="#">Задача 1</a></li>
+                                <li><a href="#">Задача 2</a></li>
+                                <li><a href="#">Задача 3</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sub-item">
+                            <input type="checkbox" id="student3">
+                            <img src="img/Arrow.png" class="arrow">
+                            <label for="student3">Студент 1</label>
+                            <ul>
+                                <li><a href="#">Задача 1</a></li>
+                                <li><a href="#">Задача 2</a></li>
+                                <li><a href="#">Задача 3</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+
+
+    </nav>
+
+    <div class="content">
+        <span class="taskContent">Task content</span>
     </div>
 </div>
 </body>

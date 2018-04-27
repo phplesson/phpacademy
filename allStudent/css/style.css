@@ -1,23 +1,105 @@
-.container {
-    width: 1004px;
-    height: auto;
-    overflow: hidden;
+/*глобальные настройки*/
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
 }
 
+/*функционал*/
+
+.multi-level, .item ul, .menu input[type="checkbox"] {
+    display: none;
+}
+
+#menu:checked ~ .multi-level, .item input:checked ~ ul {
+    display: block;
+}
+
+/*иконка*/
+.arrow {
+    width: 12px;
+    height: 12px;
+    vertical-align: middle;
+    float: left;
+    z-index: 0;
+    margin: 17px 1em 0 2em;
+}
+
+.item input + .arrow {
+    transform: rotate(-90deg);
+    transition: 0.1s;
+}
+
+.item input:checked + .arrow {
+    transform: rotate(0deg);
+    transition: 0.1s;
+}
+
+/*основные стили меню*/
+
+label:hover {
+    cursor: pointer;
+}
+
+label {
+    width: 100%;
+    display: block;
+    z-index: 3;
+    position: relative;
+}
+
+.menu {
+    width: 20%;
+    float: left;
+    background-color: white;
+    overflow-x: hidden;
+    border-bottom: 1px solid #CFD8DC;
+}
+
+#nav-icon {
+    font-size: 28px;
+    line-height: 50px;
+    padding-left: 1em;
+    color: white;
+    background-color: #F44336;
+}
+
+.menu ul, .menu li, label {
+    line-height: 50px;
+    margin: 0;
+    padding: 0 2em;
+    list-style: none;
+    text-decoration: none;
+    color: #90A4AE;
+    font-weight: 100;
+    width: 100%;
+}
+
+.item ul {
+    padding: 0 0.25em;
+}
+
+.menu li a {
+    line-height: 50px;
+    margin: 0;
+    padding: 0 4em;
+    list-style: none;
+    text-decoration: none;
+    color: #90A4AE;
+    font-weight: 100;
+}
+/*основные стили контента*/
 .content {
-    border: 1px solid red;
-    width: 750px;
+    width: 80%;
     height: auto;
     min-height: 100vh;  /* Вся высота экрана(100vh) */
     float: right;
     background-color: #8bc9e3;
 }
 
-.sidebar {
-    border: 1px solid red;
-    width: 250px;
-    height: auto;
-    float: left;
-    min-height: 100vh;
-    background-color: #003f54;
+.taskContent {
+display: block;
+padding-top: 30%;
+padding-left: 50%;
 }
