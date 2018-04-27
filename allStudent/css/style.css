@@ -1,0 +1,23 @@
+.container {
+    width: 1004px;
+    height: auto;
+    overflow: hidden;
+}
+
+.content {
+    border: 1px solid red;
+    width: 750px;
+    height: auto;
+    min-height: 100vh;  /* Вся высота экрана(100vh) */
+    float: right;
+    background-color: #8bc9e3;
+}
+
+.sidebar {
+    border: 1px solid red;
+    width: 250px;
+    height: auto;
+    float: left;
+    min-height: 100vh;
+    background-color: #003f54;
+}
