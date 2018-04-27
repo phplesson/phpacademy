@@ -11,7 +11,33 @@
 <body>
 <div class="container">
     <div class="sidebar">
-
+	<ul>
+    <li><a href=#>04DZ (26.04.2018)</a>
+        <ul>
+            <li><a href=#>Студент 1</a>
+            <ul>
+	            <li><a href=#>Задача 1</a></li>
+	            <li><a href=#>Задача 2</a></li>
+	            <li><a href=#>Задача 3</a></li>
+            </ul>
+            </li>
+            <li><a href=#>Студент 2</a>
+            <ul>
+	            <li><a href=#>Задача 1</a></li>
+	            <li><a href=#>Задача 2</a></li>
+	            <li><a href=#>Задача 3</a></li>
+            </ul>
+            </li>
+            <li><a href=#>Студент 3</a>
+            <ul>
+	            <li><a href=#>Задача 1</a></li>
+	            <li><a href=#>Задача 2</a></li>
+	            <li><a href=#>Задача 3</a></li>
+            </ul>
+            </li>
+        </ul>
+    </li>    
+	</ul>
     </div>
     <div class="content">
 
