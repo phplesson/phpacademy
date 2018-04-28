@@ -1,0 +1,37 @@
+nav {
+	box-sizing: border-box;
+	background-color: lightcyan;
+	width: 30%;
+	min-height: 700px;
+	float: left;
+}
+
+section {
+	box-sizing: border-box;
+	background-color: lightyellow;
+	width: 70%;
+	min-height: 700px;
+	float: left;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: blue;
+}
+
+ul {
+	list-style: none;
+}
+
+.submenu, .dz_menu {
+	display: none;
+}
+
+input:checked +label + ul {
+	display: block;
+}
