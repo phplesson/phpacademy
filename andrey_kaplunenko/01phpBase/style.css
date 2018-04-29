@@ -58,6 +58,75 @@ body {
     background:#cccccc;
 }
 
+/* Верхнее выпадающее меню */
+/* задаем цвет фона для контейнера nav. */
+nav {
+	margin: 0px 0px 20px 0px;
+	background-color: crimson;
+	height: auto;
+    width: 800px;
+}
+			
+/* убираем отступы и поля, а также list-style для "ul", 
+* и добавляем "position:relative" */
+nav ul {
+	padding:0;
+	margin:0;
+	list-style: none;
+	position: relative;
+}
+/* применяем inline-block позиционирование к элементам навигации */
+nav ul li {
+	margin: 0px -7px 0 0;
+	display:inline-block;
+	background-color: crimson;
+}
+/* стилизуем ссылки */
+nav a.topmenu {
+	display:block;
+	padding:0 10px;
+	color:#FFF;
+	font-size:16px;
+	font-family: "Arial", Helvetica, Arial, sans-serif;
+	line-height: 40px;
+	text-decoration:none;
+}
+/* изменяем цвет фона при наведении курсора */
+nav a.topmenu:hover {
+	background-color: #000000;
+	transform: none;
+}
+/* скрываем выпадающие списки по умолчанию
+	* и задаем абсолютное позиционирование */
+nav ul ul {
+	display: none;
+	position: absolute;
+	top: 100%;
+}
+			
+/* отображаем выпадающий список при наведении */
+nav ul li:hover > ul {
+	display:inherit;
+}
+			
+/* первый уровень выпадающего списка */
+nav ul ul li {
+	min-width:170px;
+	float:none;
+	display:list-item;
+	position: relative;
+}
+/* второй, третий и последующие уровни 
+ * смещаем 2 и 3 уровни влево 
+ * на значение длины первого уровня.
+ */
+nav ul ul ul {
+	position: absolute;
+	top:0%;
+	left:100%;
+}
+/* Конец выпадающего меню*/
+
 img.portrait {
     clip-path: polygon(0px 0px, 10px 10px, 20px 0px, 30px 10px, 40px 0px, 50px 10px, 60px 0px, 70px 10px, 80px 0px, 90px 10px, 100px 0px, 110px 10px, 120px 0px, 130px 10px, 140px 0px, 150px 10px, 160px 0px, 170px 10px, 180px 0px, 190px 10px, 200px 0px,
     190px 10px, 200px 20px, 190px 30px, 200px 40px, 190px 50px, 200px 60px, 190px 70px, 200px 80px, 190px 90px, 200px 100px, 190px 110px, 200px 120px, 190px 130px, 200px 140px, 190px 150px, 200px 160px, 190px 170px, 200px 180px, 190px 190px, 200px 200px,
