@@ -1,18 +1,25 @@
 /*глобальные настройки*/
 html, body {
+	height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
     font-family: Helvetica, sans-serif;
 }
 
+.container {
+	display: flex;
+}
+
 /*функционал*/
+
+
 
 .multi-level, .item ul, .menu input[type="checkbox"] {
     display: none;
 }
 
-#menu:checked ~ .multi-level, .item input:checked ~ ul {
+#menu:checked ~.multi-level, .item input:checked ~ ul {
     display: block;
 }
 
@@ -20,18 +27,21 @@ html, body {
 .arrow {
     width: 12px;
     height: 12px;
-    vertical-align: middle;
-    float: left;
     z-index: 0;
-    margin: 17px 1em 0 2em;
+    margin-right: 0.5em;
 }
 
-.item input + .arrow {
+.item input {
+	height: 100%;
+	width: 100%;
+}
+
+.item input ~ label .arrow {
     transform: rotate(-90deg);
     transition: 0.1s;
 }
 
-.item input:checked + .arrow {
+.item input:checked ~ label .arrow {
     transform: rotate(0deg);
     transition: 0.1s;
 }
@@ -50,40 +60,51 @@ label {
 }
 
 .menu {
-    min-width: 340px;
-    float: left;
+	display: block;
     background-color: white;
-    overflow-x: hidden;
     border-bottom: 1px solid #CFD8DC;
 }
 
 #nav-icon {
     font-size: 28px;
     line-height: 50px;
-    padding-left: 1em;
     color: white;
     background-color: #F44336;
+}
+
+#nav-icon span {
+	padding: 0 1em;
 }
 
 .menu ul, .menu li, label {
     line-height: 50px;
     margin: 0;
-    padding: 0 2em;
     list-style: none;
     text-decoration: none;
     color: #90A4AE;
     font-weight: 100;
-    width: 100%;
+}
+
+.sub-item {
+	width: 100%;
+	
+}
+
+.item label {
+	display: inline;
+}
+
+.multi-level {
+	padding: 0 2em;
 }
 
 .item ul {
-    padding: 0 0.25em;
+   padding-left: 3em;
 }
 
 .menu li a {
     line-height: 50px;
     margin: 0;
-    padding: 0 4em;
     list-style: none;
     text-decoration: none;
     color: #90A4AE;
@@ -92,10 +113,9 @@ label {
 
 /*основные стили контента*/
 .content {
-    overflow: auto;
-    height: auto;
-    min-height: 100vh; /* Вся высота экрана(100vh) */
+	flex: 1;
     background-color: #8bc9e3;
+    min-height: 100vh;
 }
 
 .taskContent {
@@ -104,12 +124,23 @@ label {
     padding-left: 50%;
 }
 
-@media only screen and (max-width: 800px) {
-    .menu li a {
+@media screen and (max-width: 800px) {
+	.item label {
+		word-wrap: normal;
+	}
+    .multi-level {
+	    padding: 0 1.3em;
+	    word-wrap: normal;
+	    min-width: 100%;
+    }
+    .item ul {
+	    padding-left: 1em;
+	    word-wrap: normal;
+    }
+}
 
-        padding: 0;
-    }
-    .menu {
-        min-width: 140px;
-    }
+
+
+.clear {
+	clear: both;
 }
