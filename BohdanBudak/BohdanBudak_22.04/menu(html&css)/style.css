@@ -1,0 +1,58 @@
+body {
+    padding: 10px;
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    background-color: ghostwhite;
+    box-shadow: 0 0 7px blue;
+    width: 80%;
+    margin-left: 100px;
+    margin-top: 50px;
+}
+
+.main-menu {
+    border: 1px solid blue;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-menu > li {
+    position: relative;
+    display: inline-block;
+    margin-right: -4px;
+}
+
+.main-menu a {
+    display: block;
+    margin-left: -1px;
+    padding: 8px 10px;
+    color: greenyellow;
+    border-left: 1px solid blue;
+}
+
+.main-menu a:hover {
+
+    background: blue;
+}
+
+.main-menu .sub-menu {
+    position: absolute;
+    left: 1px;
+    display: none;
+    width: 150px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: #fcf8e3;
+}
+
+.main-menu .sub-menu a {
+    margin-bottom: -1px;
+    border: 1px solid #e5e5e5;
+}
+
+.main-menu > li:hover .sub-menu {
+    display: block;
+}
+
