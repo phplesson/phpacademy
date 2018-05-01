@@ -1,3 +1,5 @@
+[01.05.2018]
+Добавлены задачи по функциям: 09.php, 10.php и модуль который их вызывает со сгенерированными случайными параметрами: index.php. Папка 2018_04_26_dz. Список задач отсюда: https://github.com/oleg-shumar/php-academy.kiev.ua/blob/master/functions_forms_tasks/index.html
 [26.04.2018]
 Добавлены задачи по массивам и циклам [26.php-28.php] Папка arrays_loops_tasks.
 [25.04.2018]
