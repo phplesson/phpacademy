@@ -9,6 +9,6 @@
 function action() {
     return [
         'message' => 'something wrong',
-        'view' => 'template/message.php',
+        'view' => 'message.php',
     ];
 }

@@ -1,7 +1,5 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: alex
- * Date: 05.05.18
- * Time: 9:12
- */
+<ul>
+    <?php foreach($viewData['content']['actionList'] as $name => $link) {?>
+        <li><a href="index.php?<?=$link;?>"><?=$name;?></a></li>
+    <?php }?>
+</ul>
