@@ -10,8 +10,15 @@ error_reporting(0xffffffff);
 
 $targetDir = "uploads/";
 $saveName = $targetDir . basename($_FILES["myFile"]["name"]);
+/**
+ * name - original name
+ * tmp_name - temp name in the server
+ * size - file size
+ * extention
+ * error - 0
+ */
 
-if(isset($_POST["action"])) {
+if(isset($_POST["action"]) && $_POST['action'] == 'sendFile') {
     //check error
     if($_FILES['myFile']['error'] !== UPLOAD_ERR_OK) {
         //error exists
@@ -37,3 +44,8 @@ if(isset($_POST["action"])) {
         }
     }
 }
+
+echo "<pre>";
+var_dump($_POST);
+var_dump($_FILES);
+echo "</pre>";

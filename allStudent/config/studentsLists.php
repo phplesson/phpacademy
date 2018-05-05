@@ -1,6 +1,13 @@
 <?php
 
 return [
+  'teacher' => [
+    'baseLink' => '06Lesson/04view/index.php',
+    'subMenu' => [
+      'current time' => '?action=time',
+      'md5 sum' => '?action=md5',
+    ],
+  ],
     'student1' => [
         'baseLink' => 'student1/',
         'subMenu' => [

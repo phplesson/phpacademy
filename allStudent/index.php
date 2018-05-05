@@ -12,7 +12,7 @@
     //get $menuConfig
     $menuConfig = include('config/studentsLists.php');
     //make base url.
-    $needFolder = '';
+    $needFolder = '../';
 
 ?>
 </head>

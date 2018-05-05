@@ -6,6 +6,8 @@
  * Time: 8:14
  */
 
+header('Content-Type: text/html');
+header('Content-Disposition: attachment; filename="index.html"');
 $targetDir = 'uploads';
 
 $list = scandir($targetDir);
