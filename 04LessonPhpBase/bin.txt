@@ -1,0 +1,62 @@
+Decimal(10) system
+9+1 = 10
+10 + 1 = 11
+234 = 2*10^2 + 3*10^1 + 4*10^0
+23456 = 2*10^4 + 3*10^3 + 4*10^2 + 5*10^1 + 6*10^0
+
+Octal(8)
+7+1 = 10
+10 + 1 = 11
+234 = 2*8^2 + 3*8^1 + 4*8^0
+23456 = 2*8^4 + 3*8^3 + 4*8^2 + 5*8^1 + 6*8^0
+
+Binary(2)
+0+1 = 1
+1 + 1 = 10
+10 + 1 = 11
+11+1 = 100
+
+ 11
++
+  1
+100
+
+10101011 = 1*2^7 + 0*2^6 + 1*2^5 + 0*2^4 +
+            1*2^3 + 0*2^2 + 1*2^1 + 1*2^0
+
+0 isPresent
+1 isDoneLastHomework
+2 isSick
+3 hasQuestion
+4 hasPayed
+
+$a = "--++-"
+$b = "-+-+-"
+
+$result = "";
+foreach($a as $key => $value) {
+  if ($value == $b[$key]) {
+    $result .= "+";
+  } else {
+    $result .= "-";
+  }
+}
+$result = "+--++"
+
+
+alergen1
+alergen2
+alergen3
+alergen4
+alergen5
+alergen6
+
+$ingredient1 = 0b000100
+$ingredient2 = 0b010000
+$ingredient3 = 0b010010
+
+$food = ($ingredient1 | $ingredient2 | $ingredient3);
+
+$man = 0b110000
+
+if ($man & $food)
