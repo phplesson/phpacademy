@@ -43,6 +43,7 @@ function firstBigLetterInSentence($inString) {
 }
 
 //Вспомогательная функция, которая будет выбирать абзацы текста из массива, чтобы потом применять к ним вышеописанные функции форматирования.
+if (!function_exists('sentenceRandChooser')) {
 function sentenceRandChooser() {
     $textBlocks = array(
         "а васька слушает да ест. а воз и ныне там. а вы друзья как ни садитесь, все в музыканты не годитесь. а король-то — голый. а ларчик просто открывался.а там хоть трава не расти.",
@@ -52,6 +53,7 @@ function sentenceRandChooser() {
     );
     $oneCellArray[0]=$textBlocks[rand(0, 3)]; //преобразуем строку в массив из одной ячейки, чтобы сохранить однотипность блоков в index.php
     return($oneCellArray);
+}
 }
 
 $firstBigLetterInSentence_Alias = 'firstBigLetterInSentence';
