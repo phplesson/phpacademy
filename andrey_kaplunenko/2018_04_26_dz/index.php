@@ -60,3 +60,13 @@ echo "Generated input parameter(s): ".print_r($parameters, true).EOL;
 $result = call_user_func_array($array['func'], $parameters);
 echo "Result: ".$result.EOL;
 echo "=====================================================".EOL;
+
+$array = array ();
+$array = include('12.php');
+echo "Function description: ".$array['text'].EOL;
+echo "Number of arguments: ".$array['paramCount'].EOL;
+$parameters = call_user_func($array['paramGenerator']);
+echo "Generated input parameter(s): ".print_r($parameters, true).EOL;
+$result = call_user_func_array($array['func'], $parameters);
+echo "Result: ".$result.EOL;
+echo "=====================================================".EOL;
