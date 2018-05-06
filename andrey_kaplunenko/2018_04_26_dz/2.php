@@ -11,8 +11,8 @@
 // вначале напишем callback для usort
 function compareWords ($word1, $word2) {
     // iconv_strlen мы используем для учета многобайтных кодировок
-    if(iconv_strlen($word1)==iconv_strlen($word2)) return 0;
-    elseif (iconv_strlen($word1)<iconv_strlen($word2)) return -1;
+    if(iconv_strlen($word1, 'UTF-8')==iconv_strlen($word2, 'UTF-8')) return 0;
+    elseif (iconv_strlen($word1, 'UTF-8')<iconv_strlen($word2, 'UTF-8')) return -1;
     else return 1;
 };
 
@@ -37,15 +37,18 @@ return(implode(' ', $top3Words));
 
 $top3_Alias = 'top3';
 
-function sentenceRandChooser() {
-    $textBlocks = array(
-        "а васька слушает да ест. а воз и ныне там?",
-        "глава    Faceboooooook не назвал конкретных функций.",
-        "   обработка строк? PHP Manual! сайт посвящен документации по PHP.русифицированное руководство с примерами на PHP. ",
-        "среди автолюбителей довольно распространено мнение,   что единственной причиной обращения в автосервис может быть поломка автомобиля. однако это не совсем,  так",
-    );
-    $oneCellArray[0]=$textBlocks[rand(0, 3)]; //преобразуем строку в массив из одной ячейки, чтобы сохранить однотипность блоков в index.php
-    return($oneCellArray);
+if (!function_exists('sentenceRandChooser')) {
+    function sentenceRandChooser()
+    {
+        $textBlocks = array(
+            "а Васька слушает да ест.    а воз и ныне там? а вы друзья как ни садитесь, все в музыканты не годитесь! а король-то — голый. а ларчик просто открывался. а там хоть трава не расти.",
+            "глава    Faceboooooook не назвал конкретных функций.",
+            "   обработка строк? PHP Manual! сайт посвящен документации по PHP.русифицированное руководство с примерами на PHP. ",
+            "среди автолюбителей довольно распространено мнение,   что единственной причиной обращения в автосервис может быть поломка автомобиля. однако это не совсем,  так",
+        );
+        $oneCellArray[0] = $textBlocks[rand(0, 3)]; //преобразуем строку в массив из одной ячейки, чтобы сохранить однотипность блоков в index.php
+        return ($oneCellArray);
+    }
 }
 
 $sentenceRandChooser_Alias = 'sentenceRandChooser';

@@ -12,7 +12,7 @@ if (php_sapi_name() === 'cli') {
 }
 
 $array = array ();
-$array = include('test.php');
+$array = include('1.php');
 echo "Function description: ".$array['text'].EOL;
 echo "Number of arguments: ".$array['paramCount'].EOL;
 $parameters = call_user_func($array['paramGenerator']);
@@ -53,6 +53,26 @@ echo "=====================================================".EOL;
 
 $array = array ();
 $array = include('11.php');
+echo "Function description: ".$array['text'].EOL;
+echo "Number of arguments: ".$array['paramCount'].EOL;
+$parameters = call_user_func($array['paramGenerator']);
+echo "Generated input parameter(s): ".print_r($parameters, true).EOL;
+$result = call_user_func_array($array['func'], $parameters);
+echo "Result: ".$result.EOL;
+echo "=====================================================".EOL;
+
+$array = array ();
+$array = include('12.php');
+echo "Function description: ".$array['text'].EOL;
+echo "Number of arguments: ".$array['paramCount'].EOL;
+$parameters = call_user_func($array['paramGenerator']);
+echo "Generated input parameter(s): ".print_r($parameters, true).EOL;
+$result = call_user_func_array($array['func'], $parameters);
+echo "Result: ".$result.EOL;
+echo "=====================================================".EOL;
+
+$array = array ();
+$array = include('13.php');
 echo "Function description: ".$array['text'].EOL;
 echo "Number of arguments: ".$array['paramCount'].EOL;
 $parameters = call_user_func($array['paramGenerator']);
