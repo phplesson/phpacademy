@@ -12,7 +12,7 @@ if (php_sapi_name() === 'cli') {
 }
 
 $array = array ();
-$array = include('test.php');
+$array = include('1.php');
 echo "Function description: ".$array['text'].EOL;
 echo "Number of arguments: ".$array['paramCount'].EOL;
 $parameters = call_user_func($array['paramGenerator']);
