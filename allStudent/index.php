@@ -27,24 +27,23 @@
         <div class="multi-level">
             <div class="item">
                 <input type="checkbox" id="homeWork">
-                <label for="homeWork"><img src="img/Arrow.png" class="arrow">04DZ (26.04.2018)</label>
+                <label for="homeWork"><img src="img/Arrow.png" class="arrow">Студенты</label>
                 <ul>
-                    <li>
-                        <div class="sub-item">
-                            <input type="checkbox" id="student1">
-                            <label for="student1"><img src="img/Arrow.png" class="arrow">Студенты</label>
-                            <?php foreach($menuConfig as $studentName => $menuItem) {?>
-                            <ul><?=$studentName;?>
-                                <?php foreach($menuItem['subMenu'] as $subMenuName => $subMenuLink) {?>
-                                <li>
-                                    <?php $link = $needFolder . $menuItem['baseLink'] . $subMenuLink;?>
-                                    <a href="<?=$link;?>"><?=$subMenuName;?></a>
-                                </li>
-                            <?php }?>
-                            <?php }?>
-                            </ul>
-                        </div>
-                    </li>
+                    <?php foreach($menuConfig as $name => $config) {?>
+                        <li>
+                            <div class="sub-item">
+                                <input type="checkbox" id="<?=sha1($name);?>">
+                                <label for="<?=sha1($name);?>"><img src="img/Arrow.png" class="arrow"><?=$name;?></label>
+                                <ul>
+                                    <?php foreach($config['subMenu'] as $dzName => $dzLink) {?>
+                                        <li>
+                                            <a href="<?=($needFolder . $dzLink);?>"><?=$dzName;?></a>
+                                        </li>
+                                    <?php }?>
+                                </ul>
+                            </div>
+                        </li>
+                    <?php }?>
                 </ul>
             </div>
 
