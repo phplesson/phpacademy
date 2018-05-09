@@ -8,6 +8,13 @@ return [
             'dz onother' => '#',
         ],
     ],
+    'Andrey Kaplunenko' => [
+        'hint' => 'my homeworks',
+        'subMenu' => [
+            '2018_04_26_dz' => 'andrey_kaplunenko/2018_04_26_dz/',
+            'dz onother' => '#',
+        ],
+    ],
 ];
 
 
