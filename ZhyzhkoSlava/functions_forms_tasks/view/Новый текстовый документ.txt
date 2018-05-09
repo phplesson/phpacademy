@@ -1,0 +1,5 @@
+<p>Function show all files in given dir.</p>
+<form method="POST" enctype="application/x-www-form-urlencoded" action="index.php?action=4.php">
+
+</form>
+<p>Result: <?=$viewData['result'];?></p>
