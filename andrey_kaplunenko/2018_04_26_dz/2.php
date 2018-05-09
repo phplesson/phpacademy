@@ -54,8 +54,8 @@ if (!function_exists('sentenceRandChooser')) {
 $sentenceRandChooser_Alias = 'sentenceRandChooser';
 
 $interfaceArray = array(
-    'text' => 'Задача 2. Функция, которая выводит ТОП-3 длинных слов из текста. Учитывает многобайтные кодировки и фильтрует знаки препинания!',
-    'paramCount' => '1',
+    'description' => 'Задача 2. Функция, которая выводит ТОП-3 длинных слов из текста. Учитывает многобайтные кодировки и фильтрует знаки препинания!',
+    'argCount' => '1',
     'func' => $top3_Alias,
     'paramGenerator' => $sentenceRandChooser_Alias,
 );

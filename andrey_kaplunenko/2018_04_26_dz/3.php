@@ -51,8 +51,8 @@ if (!function_exists('primitiveVarLengthWords')) {
 $primitiveVarLengthWords_Alias = 'primitiveVarLengthWords';
 
 $interfaceArray = array(
-    'text' => 'Задача 3. Функция, удаляет в файле все слова длиннее N символов. В демо-режиме N=3 и является параметром по умолчанию, как и путь к файлу - 3.txt',
-    'paramCount' => '1',
+    'description' => 'Задача 3. Функция, удаляет в файле все слова длиннее N символов. В демо-режиме N=3 и является параметром по умолчанию, как и путь к файлу - 3.txt',
+    'argCount' => '1',
     'func' => $deleteLongWords_Alias,
     'paramGenerator' => $primitiveVarLengthWords_Alias,
 );

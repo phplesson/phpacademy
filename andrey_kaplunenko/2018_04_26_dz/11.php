@@ -61,8 +61,8 @@ $firstBigLetterInSentence_Alias = 'firstBigLetterInSentence';
 $sentenceRandChooser_Alias = 'sentenceRandChooser';
 
 $interfaceArray = array(
-    'text' => 'Задача 11. Функция, которая начинает предложение с большой буквы. Разделителем предложений могут быть: [.], [?], [!], [. ], [? ], [! ]',
-    'paramCount' => '1',
+    'description' => 'Задача 11. Функция, которая начинает предложение с большой буквы. Разделителем предложений могут быть: [.], [?], [!], [. ], [? ], [! ]',
+    'argCount' => '1',
     'func' => $firstBigLetterInSentence_Alias,
     'paramGenerator' => $sentenceRandChooser_Alias,
 );

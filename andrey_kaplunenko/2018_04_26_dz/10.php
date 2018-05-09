@@ -53,8 +53,8 @@ $uniqWordsCount_Alias = 'uniqWordsCount';
 $randSentence_Alias = 'randSentence';
 
 $interfaceArray = array(
-    'text' => 'Задача 10. Функция, которая считает кол-во уникальных слов в тексте',
-    'paramCount' => '1',
+    'description' => 'Задача 10. Функция, которая считает кол-во уникальных слов в тексте',
+    'argCount' => '1',
     'func' => $uniqWordsCount_Alias,
     'paramGenerator' => $randSentence_Alias,
 );
