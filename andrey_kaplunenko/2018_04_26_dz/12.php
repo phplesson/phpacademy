@@ -44,8 +44,8 @@ if (!function_exists('sentenceRandChooser')) {
 $sentenceRandChooser_Alias = 'sentenceRandChooser';
 
 $interfaceArray = array(
-    'text' => 'Задача 12. Функция, форматирует строку так, что предложения идут в обратном порядке. Разделителем могут являться [.] [?] [!], но склейка все равно через точку...',
-    'paramCount' => '1',
+    'description' => 'Задача 12. Функция, форматирует строку так, что предложения идут в обратном порядке. Разделителем могут являться [.] [?] [!], но склейка все равно через точку...',
+    'argCount' => '1',
     'func' => $sentencesFromLastToFirst_Alias,
     'paramGenerator' => $sentenceRandChooser_Alias,
 );

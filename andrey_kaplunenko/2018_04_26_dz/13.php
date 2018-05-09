@@ -55,8 +55,8 @@ if (!function_exists('aLotOfWords')) {
 $aLotOfWords_Alias = 'aLotOfWords';
 
 $interfaceArray = array(
-    'text' => 'Задача 13. Функция, подсчитывает количество вхождений слова в строку. Возвращает список вхождений в порядке убывания',
-    'paramCount' => '1',
+    'description' => 'Задача 13. Функция, подсчитывает количество вхождений слова в строку. Возвращает список вхождений в порядке убывания',
+    'argCount' => '1',
     'func' => $wordCount_Alias,
     'paramGenerator' => $aLotOfWords_Alias,
 );

@@ -75,8 +75,8 @@ if (!function_exists('aLotOfWordsTwoStrings')) {
 $aLotOfWordsTwoStrings_Alias = 'aLotOfWordsTwoStrings';
 
 $interfaceArray = array(
-    'text' => 'Задача 1. Функция возвращает слова, которые есть и в 1 и во 2 textarea.',
-    'paramCount' => '2',
+    'description' => 'Задача 1. Функция возвращает слова, которые есть и в 1 и во 2 textarea.',
+    'argCount' => '2',
     'func' => $getCommonWords_Alias,
     'paramGenerator' => $aLotOfWordsTwoStrings_Alias,
 );

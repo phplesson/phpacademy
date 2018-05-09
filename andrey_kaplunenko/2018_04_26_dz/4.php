@@ -33,8 +33,8 @@ if (!function_exists('randPathChooser')) {
 $randPathChooser_Alias = 'randPathChooser';
 
 $interfaceArray = array(
-    'text' => 'Задача 4. Функция, выводит список файлов в заданной директории.',
-    'paramCount' => '1',
+    'description' => 'Задача 4. Функция, выводит список файлов в заданной директории.',
+    'argCount' => '1',
     'func' => $filesArray_Alias,
     'paramGenerator' => $randPathChooser_Alias,
 );

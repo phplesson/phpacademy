@@ -39,8 +39,8 @@ $flipString_Alias = 'flipString';
 $randWord_Alias = 'randWord';
 
 $interfaceArray = array(
-    'text' => 'Задача 9. Функция, которая переворачивает строку',
-    'paramCount' => '1',
+    'description' => 'Задача 9. Функция, которая переворачивает строку',
+    'argCount' => '1',
     'func' => $flipString_Alias,
     'paramGenerator' => $randWord_Alias,
 );
