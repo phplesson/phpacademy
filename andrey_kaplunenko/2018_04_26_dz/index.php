@@ -1,102 +1,36 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: andrey
- * Date: 4/30/18
- * Time: 9:10 PM
+ * User: alex
+ * Date: 05.05.18
+ * Time: 23:41
  */
-if (php_sapi_name() === 'cli') {
-    define('EOL', PHP_EOL);
+
+//1 check CLI or WEB run
+
+//2 check AS_LIBRARY
+
+
+//example for WEB and not AS_LIBRARY
+
+include('./functions.php');
+
+list($action, $args) = detectWebInput();
+
+$libName = "./$action.php";
+
+$viewData = include($libName);
+
+if ($viewData['argCount'] === 0) {
+    $viewData['result'] = call_user_func($viewData['func']);
+} elseif ($args !== null) {
+    $viewData['result'] = call_user_func_array($viewData['func'], $args);
 } else {
-    define('EOL', '<br />');
+    $viewData['result'] = '';
 }
 
-$array = array ();
-$array = include('1.php');
-echo "Function description: ".$array['description'].EOL;
-echo "Number of arguments: ".$array['argCount'].EOL;
-$parameters = call_user_func($array['paramGenerator']);
-echo "Generated input parameter(s): ".print_r($parameters, true).EOL;
-$result = call_user_func_array($array['func'], $parameters);
-echo "Result: ".$result.EOL;
-echo "=====================================================".EOL;
+include('view/header.php');
 
-$array = array ();
-$array = include('2.php');
-echo "Function description: ".$array['description'].EOL;
-echo "Number of arguments: ".$array['argCount'].EOL;
-$parameters = call_user_func($array['paramGenerator']);
-echo "Generated input parameter(s): ".print_r($parameters, true).EOL;
-$result = call_user_func_array($array['func'], $parameters);
-echo "Result: ".$result.EOL;
-echo "=====================================================".EOL;
+include($viewData['view']);
 
-$array = array ();
-$array = include('3.php');
-echo "Function description: ".$array['description'].EOL;
-echo "Number of arguments: ".$array['argCount'].EOL;
-$parameters = call_user_func($array['paramGenerator']);
-echo "Generated input parameter(s): ".print_r($parameters, true).EOL;
-$result = call_user_func_array($array['func'], $parameters);
-echo "Result: ".$result.EOL;
-echo "=====================================================".EOL;
-
-$array = array ();
-$array = include('4.php');
-echo "Function description: ".$array['description'].EOL;
-echo "Number of arguments: ".$array['argCount'].EOL;
-$parameters = call_user_func($array['paramGenerator']);
-echo "Generated input parameter(s): ".print_r($parameters, true).EOL;
-$result = call_user_func_array($array['func'], $parameters);
-echo "Result: ".$result.EOL;
-echo "=====================================================".EOL;
-
-$array = array ();
-$array = include('9.php');
-echo "Function description: ".$array['description'].EOL;
-echo "Number of arguments: ".$array['argCount'].EOL;
-$parameters = call_user_func($array['paramGenerator']);
-echo "Generated input parameter(s): ".print_r($parameters, true).EOL;
-$result = call_user_func_array($array['func'], $parameters);
-echo "Result: ".$result.EOL;
-echo "=====================================================".EOL;
-
-$array = array ();
-$array = include('10.php');
-echo "Function description: ".$array['description'].EOL;
-echo "Number of arguments: ".$array['argCount'].EOL;
-$parameters = call_user_func($array['paramGenerator']);
-echo "Generated input parameter(s): ".print_r($parameters, true).EOL;
-$result = call_user_func_array($array['func'], $parameters);
-echo "Result: ".$result.EOL;
-echo "=====================================================".EOL;
-
-$array = array ();
-$array = include('11.php');
-echo "Function description: ".$array['description'].EOL;
-echo "Number of arguments: ".$array['argCount'].EOL;
-$parameters = call_user_func($array['paramGenerator']);
-echo "Generated input parameter(s): ".print_r($parameters, true).EOL;
-$result = call_user_func_array($array['func'], $parameters);
-echo "Result: ".$result.EOL;
-echo "=====================================================".EOL;
-
-$array = array ();
-$array = include('12.php');
-echo "Function description: ".$array['description'].EOL;
-echo "Number of arguments: ".$array['argCount'].EOL;
-$parameters = call_user_func($array['paramGenerator']);
-echo "Generated input parameter(s): ".print_r($parameters, true).EOL;
-$result = call_user_func_array($array['func'], $parameters);
-echo "Result: ".$result.EOL;
-echo "=====================================================".EOL;
-
-$array = array ();
-$array = include('13.php');
-echo "Function description: ".$array['description'].EOL;
-echo "Number of arguments: ".$array['argCount'].EOL;
-$parameters = call_user_func($array['paramGenerator']);
-echo "Generated input parameter(s): ".print_r($parameters, true).EOL;
-$result = call_user_func_array($array['func'], $parameters);
-echo "Result: ".$result.EOL;
-echo "=====================================================".EOL;
+include('view/footer.php');

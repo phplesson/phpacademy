@@ -58,6 +58,7 @@ $interfaceArray = array(
     'argCount' => '1',
     'func' => $top3_Alias,
     'paramGenerator' => $sentenceRandChooser_Alias,
+    'view' => 'view/view2.php'
 );
 
 return ($interfaceArray);
