@@ -79,6 +79,7 @@ $interfaceArray = array(
     'argCount' => '2',
     'func' => $getCommonWords_Alias,
     'paramGenerator' => $aLotOfWordsTwoStrings_Alias,
+    'view' => 'view/view1.php',
 );
 
 return ($interfaceArray);
