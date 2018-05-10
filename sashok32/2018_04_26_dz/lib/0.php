@@ -21,6 +21,7 @@ return [
         1 => 'common words',
         2 => 'TOP3',
         4 => 'Files and directories',
+		5 => 'Files and directories for keywords',
 		
     ],
 ];
