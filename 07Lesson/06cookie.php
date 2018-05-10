@@ -41,3 +41,4 @@ echo '<h1>COOKIE</h1>';
 echo '<pre>';
 var_dump($_COOKIE);
 echo '</pre>';
+

@@ -13,14 +13,21 @@
 
 //example for WEB and not AS_LIBRARY
 
+
+
 include('./lib/functions.php');
 
 list($action, $args) = detectWebInput();
+
+//$temp = detectWebInput();
+//$action = $temp[0];
+//$args = $temp[1];
 
 $libName = "./lib/$action.php";
 
 $viewData = include($libName);
 
+// work with user
 if ($viewData['argCount'] === 0) {
     $viewData['result'] = call_user_func($viewData['func']);
 } elseif ($args !== null) {
@@ -28,6 +35,7 @@ if ($viewData['argCount'] === 0) {
 } else {
     $viewData['result'] = '';
 }
+
 
 include('view/header.php');
 

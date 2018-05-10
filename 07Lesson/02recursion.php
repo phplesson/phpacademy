@@ -10,6 +10,8 @@
  * @param array $data
  */
 
+error_reporting(0);
+
 function writeArray(array $data) {
     echo '<ul>';
     foreach($data as $key => $value) {

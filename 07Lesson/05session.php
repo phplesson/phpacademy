@@ -15,6 +15,19 @@ function processData(array $data, array $storage) {
     foreach ($data as $key => $value) {
         if (empty($value)) {
             unset($storage[$key]);
+        } elseif (is_array($value)) {
+
+            if (!array_key_exists($key, $storage)) {
+                $storage[$key] = [];
+            }
+
+            if (!is_array($storage[$key])) {
+                $tempVal = $storage[$key];
+                $storage[$key] = [];
+                $storage[$key]['oldValue'] = $tempVal;
+            }
+
+            processData($value, $storage[$key]);
         }  else {
             $storage[$key] = $value;
         }
@@ -98,17 +111,3 @@ echo '</pre>';
 
 //
 //
-//elseif (is_array($value)) {
-//
-//    if (!array_key_exists($key, $storage)) {
-//        $storage[$key] = [];
-//    }
-//
-//    if (!is_array($storage[$key])) {
-//        $tempVal = $storage[$key];
-//        $storage[$key] = [];
-//        $storage[$key]['oldValue'] = $tempVal;
-//    }
-//
-//    processData($value, $storage[$key]);
-//}

@@ -10,6 +10,7 @@
 echo '<h1>SESSION</h1>';
 
 session_start();
+@session_start();
 
 
 echo '<h3>Session id : ' . session_id() . '</h3>';
