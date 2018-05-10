@@ -15,6 +15,13 @@ return [
             'dz onother' => '#',
         ],
     ],
+	'Sashok32' => [
+        'hint' => 'homeworks',
+        'subMenu' => [
+            '2018_04_26_dz' => 'sashok32/2018_04_26_dz/index.php',
+            'dz another' => '#',
+        ],
+    ],
 ];
 
 
