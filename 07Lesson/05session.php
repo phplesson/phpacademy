@@ -6,12 +6,12 @@
  * Time: 9:45
  */
 
-
+ini_set('xdebug.var_display_max_depth', 15);
 /**
  * @param array $data
  * @param array $storage
  */
-function processData(array $data, array $storage) {
+function processData(array $data, array &$storage) {
     foreach ($data as $key => $value) {
         if (empty($value)) {
             unset($storage[$key]);

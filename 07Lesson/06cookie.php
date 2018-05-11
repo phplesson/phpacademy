@@ -29,9 +29,6 @@ if (count($_GET) > 0) {
             } else {
                 $result = setcookie($key, $value, time() + 30, '/');
             }
-//            echo "<pre>$key :";
-//            var_dump($result);
-//            echo '</pre>';
         }
     }
 }
