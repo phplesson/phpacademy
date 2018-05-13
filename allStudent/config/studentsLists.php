@@ -22,11 +22,10 @@ return [
             'dz another' => '#',
         ],
     ],
+	'Alex Pshegodsky' => [
+		'hint' => 'homeworks',
+		'subMenu' => [
+			'26.04.2018' => 'sashok32/2018_04_26_dz/index.php',
+		],
+	],
 ];
-
-
-$studentList = ['student1', 'student2', 'student3'];
-
-// foreach ($studentList as $value) {
-// 	echo "$value\n";
-// }
