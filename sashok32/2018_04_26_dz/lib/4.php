@@ -1,6 +1,6 @@
 <?php
 return [
-    'description' => 'функция которая возвращает список файлов и папок в директории',
+    'description' => 'Функция которая возвращает список файлов и папок в директории',
     'func' => function($a) {
 	return scandir ($a);},
     'paramGenerator' => function() {
