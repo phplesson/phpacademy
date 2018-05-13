@@ -1,6 +1,6 @@
 <?php
 return [
-    'description' => 'функция которая возвращает Топ 3 длинных слова',
+    'description' => 'Функция которая возвращает Топ 3 длинных слова',
     'func' => function($a) {
 		$a = explode(" ", $a);
 		foreach ($a as $key) {
