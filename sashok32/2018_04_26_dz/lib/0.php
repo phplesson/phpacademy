@@ -22,6 +22,7 @@ return [
         2 => '2) TOP3',
         4 => '4) Files and directories',
 		5 => '5) Files and directories for keywords',
+		7 => '7) Guest book',
 		9 => '9) Reverse stroke',
 		10 => '10) Count unique words',
 		11 => '11) First capital letter',
