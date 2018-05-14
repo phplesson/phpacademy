@@ -1,5 +1,4 @@
 <?php
-
 return [
     'teacher' => [
         'hint' => 'examples of dz for students',
@@ -8,11 +7,15 @@ return [
             'dz onother' => '#',
         ],
     ],
+    'Zhyzhko Slava' => [
+        'hint' => 'Zhyzhkoslava homework',
+        'subMenu' => [
+            'dz function and form' => 'ZhyzhkoSlava/functions_forms_tasks/index.php',
+            'dz onother' => '#',
+        ],
+    ],
 ];
-
-
-$studentList = ['student1', 'student2', 'student3'];
-
+//$studentList = ['student1', 'student2', 'student3'];
 // foreach ($studentList as $value) {
 // 	echo "$value\n";
 // }

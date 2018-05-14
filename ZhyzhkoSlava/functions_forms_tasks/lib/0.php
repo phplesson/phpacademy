@@ -18,7 +18,7 @@ return [
     'view' => 'view/menu.php',
     'actionList' => [
         0 => 'menu',
-        1 => 'files in dir',
+        1 => 'file upload',
         2 => 'md5 sum',
         3 => 'current time',
     ],

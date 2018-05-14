@@ -7,7 +7,7 @@
  */
 
 return [
-    'description' => 'function calculates sum two given values',
+    'description' => 'function upload files',
     'func' => function($a, $b) {
         return $a + $b;
     },
@@ -15,5 +15,5 @@ return [
         return [mt_rand(1,1000), mt_rand(1, 1000)];
     },
     'argCount' => 2,
-    'view' => 'view/sum.php',
+    'view' => 'view/file_upload.php',
 ];

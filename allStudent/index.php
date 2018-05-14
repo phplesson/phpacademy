@@ -13,7 +13,6 @@
     $menuConfig = include('config/studentsLists.php');
     //make base url.
     $needFolder = '../';
-
 ?>
 </head>
 <body>
@@ -49,23 +48,6 @@
 
 
         </div>
-<!--     <div>
-        <?php foreach($menuConfig as $studentName => $menuItem) {?>
-         
-            <?=$studentName;?>
-                
-                    <?php foreach($menuItem['subMenu'] as $subMenuName => $subMenuLink) {?>
-                        <li>
-                            <?php $link = $needFolder . $menuItem['baseLink'] . $subMenuLink;?>
-                            <a href="<?=$link;?>"><?=$subMenuName;?></a>
-                        </li>
-                    <?php }?>
-                
-            
-        <?php }?>
-    </ul>
-    </div>
- -->
     </nav>
     <div class="content">
         <div class="taskContent">Task Content</div>

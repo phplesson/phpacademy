@@ -15,7 +15,7 @@ asort($arr);
 $result = array_slice($arr, -3, 3);
 print_r($result);
 }
-top3($a);
+//top3($a);
 ?>
 <hr>
 <form action="1.php" method="post">

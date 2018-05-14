@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alex
- * Date: 05.05.18
- * Time: 7:40
- */
+
 error_reporting(0xffffffff);
 $targetDir = "gallery/";
 $saveName = $targetDir . basename($_FILES["myFile"]["name"]);
