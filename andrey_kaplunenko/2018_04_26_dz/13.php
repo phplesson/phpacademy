@@ -10,37 +10,36 @@
  * Подсчитайте, сколько раз каждый фрукт встречается в этой строке. Выведите в виде списка в порядке уменьшения количества.
  * */
 
-function wordCount($inString) {
-    //удалим возможные лишние пробелы
-    $inString = trim($inString); //удалим пробелы с начала и конца строки.
-    $inString = preg_replace("/\s{2,}/"," ", $inString); //удалим повторяющиеся пробелы
-    //ф-ей explode разобьем строку на массив
-    $processingArray = explode(' ', $inString);
-    //удалим дублирующиеся элементы массива, и получим таким образом массив уникальных значений
-    $uniqArray = array_unique($processingArray, SORT_STRING);
-    //теперь, так как массив uniqArray имеет уникальные значения, перевернем его так, чтобы значения стали ключами, а ключи значениями, потом будем в них хранить кол-во вхождений.
-    $uniqArray = array_flip($uniqArray);
-    //далее вложенным циклом сравним $uniqArrayKey со значениями массива $processingArray, и в переменной counter посчитаем кол-во совпадений
-    //потом, присвоим значение переменной counter соответствующему элементу массива $uniqArray.
-    //Таким образом у нас будет массив вида "слово" -> кол-во вхождений
-    foreach ($uniqArray as $uniqArrayKey => &$uniqArrayValue) {
-        $counter = 0;
-        for($i=0; $i<count($processingArray); $i++) {
-            if($uniqArrayKey == $processingArray[$i]) $counter+=1;
+$interfaceArray = array(
+    'description' => 'Задача 13. Функция, подсчитывает количество вхождений слова в строку. Возвращает список вхождений в порядке убывания',
+    'argCount' => '1',
+    'func' => function ($inString) {
+        //удалим возможные лишние пробелы
+        $inString = trim($inString); //удалим пробелы с начала и конца строки.
+        $inString = preg_replace("/\s{2,}/"," ", $inString); //удалим повторяющиеся пробелы
+        //ф-ей explode разобьем строку на массив
+        $processingArray = explode(' ', $inString);
+        //удалим дублирующиеся элементы массива, и получим таким образом массив уникальных значений
+        $uniqArray = array_unique($processingArray, SORT_STRING);
+        //теперь, так как массив uniqArray имеет уникальные значения, перевернем его так, чтобы значения стали ключами, а ключи значениями, потом будем в них хранить кол-во вхождений.
+        $uniqArray = array_flip($uniqArray);
+        //далее вложенным циклом сравним $uniqArrayKey со значениями массива $processingArray, и в переменной counter посчитаем кол-во совпадений
+        //потом, присвоим значение переменной counter соответствующему элементу массива $uniqArray.
+        //Таким образом у нас будет массив вида "слово" -> кол-во вхождений
+        foreach ($uniqArray as $uniqArrayKey => &$uniqArrayValue) {
+            $counter = 0;
+            for($i=0; $i<count($processingArray); $i++) {
+                if($uniqArrayKey == $processingArray[$i]) $counter+=1;
+            }
+            $uniqArrayValue = $counter;
         }
-        $uniqArrayValue = $counter;
-    }
-    arsort($uniqArray, SORT_NUMERIC);
-    $outString = print_r($uniqArray, true);
-    return($outString);
-}
+        arsort($uniqArray, SORT_NUMERIC);
+        $outString = print_r($uniqArray, true);
+        return($outString);
+    },
 
-$wordCount_Alias = 'wordCount';
-
-//Вспомогательная функция, которая будет составлять строку из случайного количества заданных слов.
-if (!function_exists('aLotOfWords')) {
-    function aLotOfWords()
-    {
+    //Вспомогательная функция, которая будет составлять строку из случайного количества заданных слов.
+    'paramGenerator' => function () {
         $vocabulary = array('яблоко', 'черешня', 'вишня', 'груша', 'слива', 'малина', 'земляника');
         $outString = '';
         $maxIterations = rand(10,20);
@@ -49,16 +48,7 @@ if (!function_exists('aLotOfWords')) {
         }
         $oneCellArray[0]=$outString;
         return ($oneCellArray);
-    }
-}
-
-$aLotOfWords_Alias = 'aLotOfWords';
-
-$interfaceArray = array(
-    'description' => 'Задача 13. Функция, подсчитывает количество вхождений слова в строку. Возвращает список вхождений в порядке убывания',
-    'argCount' => '1',
-    'func' => $wordCount_Alias,
-    'paramGenerator' => $aLotOfWords_Alias,
+    },
 );
 
 return ($interfaceArray);

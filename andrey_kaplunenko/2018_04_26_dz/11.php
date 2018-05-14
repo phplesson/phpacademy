@@ -19,33 +19,35 @@ function mb_ucfirst($str) {
     return $firstWord." ".implode(" ",$aParts);
 }
 
-//Функция делает первую букву предложения заглавной. Можно передавать кусок текста (несколько предложений) в виде строки. Признаком разделения
-//на предложения являются: [.], [?], [!], [. ], [? ], [! ]. Этот список можно дополнить!
-function firstBigLetterInSentence($inString) {
-    $inString = trim($inString); //удалим пробелы с начала и конца строки.
-    $possibleDelimiters = array('. ', '? ', '! ', '.', '!', '?'); //массив из сочетаний, которые часто являются признаками конца предложения. Можно дополнить.
-    foreach ($possibleDelimiters as $possibleDelimitersValue) {
-        $workArray = array();
-        $workArray = explode($possibleDelimitersValue, $inString);
-        foreach ($workArray as &$workArrayValue) {
-            $workArrayValue = mb_ucfirst($workArrayValue);
-        }
-        unset($workArrayValue);
-        if(strlen(utf8_decode($possibleDelimitersValue)) == 1){
-            $possibleDelimitersValue.=' '; //если разделитель состоит из одного символа (. или ? или !), то добавить к нему в конец еще и пробел.
-        }
-        $outString = implode($possibleDelimitersValue, $workArray);
-        $inString = $outString;
-    }
-    unset($possibleDelimitersValue);
-    $outString = preg_replace("/\s{2,}/"," ", $outString); //удалим повторяющиеся пробелы
-    return($outString);
-}
+$interfaceArray = array(
+    'description' => 'Задача 11. Функция, которая начинает предложение с большой буквы. Разделителем предложений могут быть: [.], [?], [!], [. ], [? ], [! ]',
+    'argCount' => '1',
 
-//Вспомогательная функция, которая будет выбирать абзацы текста из массива, чтобы потом применять к ним вышеописанные функции форматирования.
-if (!function_exists('sentenceRandChooser')) {
-    function sentenceRandChooser()
-    {
+    //Функция делает первую букву предложения заглавной. Можно передавать кусок текста (несколько предложений) в виде строки. Признаком разделения
+    //на предложения являются: [.], [?], [!], [. ], [? ], [! ]. Этот список можно дополнить!
+    'func' => function ($inString) {
+        $inString = trim($inString); //удалим пробелы с начала и конца строки.
+        $possibleDelimiters = array('. ', '? ', '! ', '.', '!', '?'); //массив из сочетаний, которые часто являются признаками конца предложения. Можно дополнить.
+        foreach ($possibleDelimiters as $possibleDelimitersValue) {
+            $workArray = array();
+            $workArray = explode($possibleDelimitersValue, $inString);
+            foreach ($workArray as &$workArrayValue) {
+                $workArrayValue = mb_ucfirst($workArrayValue);
+            }
+            unset($workArrayValue);
+            if(strlen(utf8_decode($possibleDelimitersValue)) == 1){
+                $possibleDelimitersValue.=' '; //если разделитель состоит из одного символа (. или ? или !), то добавить к нему в конец еще и пробел.
+            }
+            $outString = implode($possibleDelimitersValue, $workArray);
+            $inString = $outString;
+        }
+        unset($possibleDelimitersValue);
+        $outString = preg_replace("/\s{2,}/"," ", $outString); //удалим повторяющиеся пробелы
+        return($outString);
+    },
+
+    //Вспомогательная функция, которая будет выбирать абзацы текста из массива, чтобы потом применять к ним вышеописанные функции форматирования.
+    'paramGenerator' => function () {
         $textBlocks = array(
             "а Васька слушает да ест.    а воз и ныне там? а вы друзья как ни садитесь, все в музыканты не годитесь! а король-то — голый. а ларчик просто открывался. а там хоть трава не расти.",
             "глава    Faceboooooook не назвал конкретных функций.",
@@ -54,17 +56,7 @@ if (!function_exists('sentenceRandChooser')) {
         );
         $oneCellArray[0] = $textBlocks[rand(0, 3)]; //преобразуем строку в массив из одной ячейки, чтобы сохранить однотипность блоков в index.php
         return ($oneCellArray);
-    }
-}
-
-$firstBigLetterInSentence_Alias = 'firstBigLetterInSentence';
-$sentenceRandChooser_Alias = 'sentenceRandChooser';
-
-$interfaceArray = array(
-    'description' => 'Задача 11. Функция, которая начинает предложение с большой буквы. Разделителем предложений могут быть: [.], [?], [!], [. ], [? ], [! ]',
-    'argCount' => '1',
-    'func' => $firstBigLetterInSentence_Alias,
-    'paramGenerator' => $sentenceRandChooser_Alias,
+    },
 );
 
 return ($interfaceArray);
