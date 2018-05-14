@@ -20,6 +20,7 @@ return [
         0 => 'menu',
         1 => '1) common words',
         2 => '2) TOP3',
+		3 => '3) Less than N-lengts words',
         4 => '4) Files and directories',
 		5 => '5) Files and directories for keywords',
 		7 => '7) Guest book',
