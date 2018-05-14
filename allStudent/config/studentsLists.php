@@ -28,4 +28,11 @@ return [
 			'26.04.2018' => 'sashok32/2018_04_26_dz/index.php',
 		],
 	],
+    'ZhyzhkoSlava' => [
+    'hint' => 'homeworks',
+    'subMenu' => [
+        '2018_04_26_dz' => 'ZhyzhkoSlava\functions_forms_tasks/index.php',
+        'dz another' => '#',
+    ],
+],
 ];
