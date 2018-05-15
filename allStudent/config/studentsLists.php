@@ -33,6 +33,7 @@ return [
     'subMenu' => [
         '2018_04_26_dz' => 'ZhyzhkoSlava/functions_forms_tasks/index.php',
         'dz another' => '#',
+        ],
     ],
 	'OleksandrKhrashchevskyi' => [
     'hint' => 'homeworks',
