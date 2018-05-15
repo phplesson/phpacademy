@@ -24,6 +24,7 @@ return [
         4 => '4) Files and directories',
 		5 => '5) Files and directories for keywords',
 		7 => '7) Guest book',
+		8 => '8) Guest book. No mats and tags',
 		9 => '9) Reverse stroke',
 		10 => '10) Count unique words',
 		11 => '11) First capital letter',
