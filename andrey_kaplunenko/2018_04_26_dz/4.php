@@ -26,6 +26,7 @@ $interfaceArray = array(
         $oneCellArray[0] = $paths[rand(0, 2)]; //преобразуем строку в массив из одной ячейки, чтобы сохранить однотипность блоков в index.php
         return ($oneCellArray);
     },
+    'view' => 'view/view4.php'
 );
 
 return ($interfaceArray);

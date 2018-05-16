@@ -49,6 +49,7 @@ $interfaceArray = array(
         $oneCellArray[0]=$outString;
         return ($oneCellArray);
     },
+    'view' => 'view/view13.php'
 );
 
 return ($interfaceArray);

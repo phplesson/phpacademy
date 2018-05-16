@@ -51,6 +51,7 @@ $interfaceArray = array(
         $oneCellArray[0]=$randSentenceString;
         return ($oneCellArray);
     },
+    'view' => 'view/view10.php'
 );
 
 return ($interfaceArray);

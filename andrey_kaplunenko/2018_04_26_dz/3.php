@@ -45,6 +45,7 @@ $interfaceArray = array(
         if((boolean)(file_put_contents($filePath, $outString)) === FALSE) return (0);
         else return ($threeCellArray);
     },
+    'view' => 'view/view3.php'
 );
 
 return ($interfaceArray);
