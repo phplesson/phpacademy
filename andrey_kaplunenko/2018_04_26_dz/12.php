@@ -39,6 +39,7 @@ $interfaceArray = array(
         $oneCellArray[0] = $textBlocks[rand(0, 3)]; //преобразуем строку в массив из одной ячейки, чтобы сохранить однотипность блоков в index.php
         return ($oneCellArray);
     },
+    'view' => 'view/view12.php'
 );
 
 return ($interfaceArray);

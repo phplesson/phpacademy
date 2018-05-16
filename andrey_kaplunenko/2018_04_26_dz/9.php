@@ -35,6 +35,7 @@ $interfaceArray = array(
         $selectedWord[0] = $myDict[rand(0,4)];
         return($selectedWord);
     },
+    'view' => 'view/view9.php'
 );
 
 return ($interfaceArray);
