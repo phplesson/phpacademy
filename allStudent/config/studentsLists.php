@@ -15,31 +15,31 @@ return [
             'dz onother' => '#',
         ],
     ],
-	'Sashok32' => [
+    'Sashok32' => [
         'hint' => 'homeworks',
         'subMenu' => [
             '2018_04_26_dz' => 'sashok32/2018_04_26_dz/index.php',
             'dz another' => '#',
         ],
     ],
-	'Alex Pshegodsky' => [
-		'hint' => 'homeworks',
-		'subMenu' => [
-			'2018_04_26_dz' => 'sashok32/2018_04_26_dz/index.php',
-		],
-	],
-    'ZhyzhkoSlava' => [
-    'hint' => 'homeworks',
-    'subMenu' => [
-        '2018_04_26_dz' => 'ZhyzhkoSlava/functions_forms_tasks/index.php',
-        'dz another' => '#',
+    'Alex Pshegodsky' => [
+        'hint' => 'homeworks',
+        'subMenu' => [
+            '2018_04_26_dz' => 'sashok32/2018_04_26_dz/index.php',
         ],
     ],
-	'OleksandrKhrashchevskyi' => [
-    'hint' => 'homeworks',
-    'subMenu' => [
-        '2018_04_26_dz' => 'OleksandrKhrashchevskyi/4)functions_forms_tasks(28.04.18)/index.php',
-        'dz another' => '#',
+    'ZhyzhkoSlava' => [
+        'hint' => 'homeworks',
+        'subMenu' => [
+            '2018_04_26_dz' => 'ZhyzhkoSlava/functions_forms_tasks/index.php',
+            'dz another' => '#',
+        ],
     ],
-],
+    'OleksandrKhrashchevskyi' => [
+        'hint' => 'homeworks',
+        'subMenu' => [
+            '2018_04_26_dz' => 'OleksandrKhrashchevskyi/4)functions_forms_tasks(28.04.18)/index.php',
+            'dz another' => '#',
+        ],
+    ],
 ];
