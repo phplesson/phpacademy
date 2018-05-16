@@ -23,6 +23,7 @@ return [
 		3 => '3) Less than N-lengts words',
         4 => '4) Files and directories',
 		5 => '5) Files and directories for keywords',
+		6 => '6) Upload files and table view',
 		7 => '7) Guest book',
 		8 => '8) Guest book. No mats and tags',
 		9 => '9) Reverse stroke',
