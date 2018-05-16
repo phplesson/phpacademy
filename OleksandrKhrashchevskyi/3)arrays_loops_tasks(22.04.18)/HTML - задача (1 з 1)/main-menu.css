@@ -1,0 +1,67 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+
+#kod22
+{
+    margin: 50px;
+}
+
+
+
+#kod22
+{
+
+    font: 14px monospace;
+
+}
+
+
+
+#kod22  li
+{
+    float:left;
+    list-style: none;
+    width: 140px;
+    text-align: center;
+}
+
+
+
+#kod22 li a
+
+{
+text-decoration: none;
+    display:block;
+    color: snow;
+    background: darkgray;
+    padding: 20px;
+    border-bottom: 1px solid crimson;
+}
+
+
+
+
+#kod22 ul ul
+{
+    display: none;
+}
+
+
+#kod22 ul li:hover > ul
+{
+    display: block;
+}
+
+
+#kod22 li a:hover
+{
+
+    color: #0000fa;
+    background: yellow;
+
+
+}

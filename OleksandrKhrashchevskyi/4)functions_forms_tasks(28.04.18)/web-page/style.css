@@ -1,0 +1,157 @@
+/*глобальные настройки*/
+html, body
+{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+    color: black;
+}
+
+/*функционал*/
+
+.multi-level, .item ul, .menu input[type="checkbox"]
+{
+    display: none;
+}
+
+
+
+#menu:checked ~ .multi-level, .item input:checked ~ ul
+{
+    display: block;
+}
+
+
+
+
+/*иконка*/
+.arrow
+{
+    width: 12px;
+    height: 12px;
+    vertical-align: middle;
+    float: left;
+    z-index: 0;
+    margin: 17px 1em 0 2em;
+}
+
+
+
+
+.item input + .arrow
+{
+    transform: rotate(-90deg);
+    transition: 0.1s;
+}
+
+
+
+
+.item input:checked + .arrow
+{
+    transform: rotate(3deg);
+    transition: 1.0s;
+}
+
+
+
+
+/*основные стили меню*/
+
+label:hover
+{
+    cursor: pointer;
+}
+
+
+
+label
+{
+    width: 100%;
+    display: block;
+    z-index: 5;
+    position: relative;
+}
+
+
+
+.menu
+{
+    min-width: 340px;
+    float: left;
+    background-color: silver;
+    overflow-x: hidden;
+}
+
+#nav-icon
+{
+    font-size: 25px;
+    line-height: 55px;
+    padding-left: 1em;
+    color: black;
+    background-color: grey;
+    font-family: fantasy;
+}
+
+.menu ul, .menu li, label {
+    line-height: 50px;
+    margin: 0;
+    padding: 0 2em;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    width: 400%;
+}
+
+
+
+.item ul
+{
+    padding: 0 0.25em;
+
+}
+
+.menu li a
+{
+    line-height: 50px;
+    margin: 0;
+    padding: 0 2em;
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    font-weight: 100;
+}
+
+/*основные стили контента*/
+.content
+{
+    overflow: auto;
+    height: auto;
+    min-height: 200vh; /* Вся высота экрана(100vh) */
+    background-color: palegoldenrod;
+}
+
+.taskContent
+{
+    display: block;
+    padding-top: 6.0%;
+    padding-left: 50%;
+    border-bottom: 2px solid black;
+}
+
+
+
+@media only screen and (max-width: 800px)
+{
+    .menu li a
+    {
+        padding: 0;
+    }
+    .menu
+    {
+        min-width: 140px;
+    }
+}
+
+

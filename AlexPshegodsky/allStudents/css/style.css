@@ -1,0 +1,146 @@
+/*глобальные настройки*/
+html, body {
+	height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+}
+
+.container {
+	display: flex;
+}
+
+/*функционал*/
+
+
+
+.multi-level, .item ul, .menu input[type="checkbox"] {
+    display: none;
+}
+
+#menu:checked ~.multi-level, .item input:checked ~ ul {
+    display: block;
+}
+
+/*иконка*/
+.arrow {
+    width: 12px;
+    height: 12px;
+    z-index: 0;
+    margin-right: 0.5em;
+}
+
+.item input {
+	height: 100%;
+	width: 100%;
+}
+
+.item input ~ label .arrow {
+    transform: rotate(-90deg);
+    transition: 0.1s;
+}
+
+.item input:checked ~ label .arrow {
+    transform: rotate(0deg);
+    transition: 0.1s;
+}
+
+/*основные стили меню*/
+
+label:hover {
+    cursor: pointer;
+}
+
+label {
+    width: 100%;
+    display: block;
+    z-index: 3;
+    position: relative;
+}
+
+.menu {
+	display: block;
+    background-color: white;
+    border-bottom: 1px solid #CFD8DC;
+}
+
+#nav-icon {
+    font-size: 28px;
+    line-height: 50px;
+    color: white;
+    background-color: #F44336;
+}
+
+#nav-icon span {
+	padding: 0 1em;
+}
+
+.menu ul, .menu li, label {
+    line-height: 50px;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    color: #90A4AE;
+    font-weight: 100;
+}
+
+.sub-item {
+	width: 100%;
+	
+}
+
+.item label {
+	display: inline;
+}
+
+.multi-level {
+	padding: 0 2em;
+}
+
+.item ul {
+   padding-left: 3em;
+}
+
+.menu li a {
+    line-height: 50px;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    color: #90A4AE;
+    font-weight: 100;
+}
+
+/*основные стили контента*/
+.content {
+	flex: 1;
+    background-color: #8bc9e3;
+    min-height: 100vh;
+}
+
+.taskContent {
+    display: block;
+    padding-top: 30%;
+    padding-left: 50%;
+}
+
+@media screen and (max-width: 800px) {
+	.item label {
+		word-wrap: normal;
+	}
+    .multi-level {
+	    padding: 0 1.3em;
+	    word-wrap: normal;
+	    min-width: 100%;
+    }
+    .item ul {
+	    padding-left: 1em;
+	    word-wrap: normal;
+    }
+}
+
+
+
+.clear {
+	clear: both;
+}

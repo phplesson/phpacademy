@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload file</title>
+</head>
+<body>
+    <h2>single file upload</h2>
+    <form action="01upload.php" enctype="multipart/form-data" method="post">
+        <span>select file for upload</span>
+        <input type="file" name="myFile" /> <br />
+        <input type="text" name="sval[]" /> <br />
+        <input type="text" name="sval[]" /> <br />
+        <input type="text" name="sval[]" /> <br />
+        <input type="submit" name="action" value="sendFile" />
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h2>multiple file upload</h2>
+    <form action="01upload.php" enctype="multipart/form-data" method="post">
+        <span>select files for upload</span>
+        <input type="file" name="myFile[]" multiple="multiple" /> <br />
+        <input type="text" name="sval[]" /> <br />
+        <input type="text" name="sval[]" /> <br />
+        <input type="text" name="sval[]" /> <br />
+        <input type="submit" name="action" value="sendFiles" />
+    </form>
+
+    <h2>multiple file upload fields</h2>
+    <form action="01upload.php" enctype="multipart/form-data" method="post">
+        <span>select file for upload</span><br />
+        <input type="file" name="myFile[]" /> <br />
+        <input type="file" name="myFile[]" /> <br />
+        <input type="file" name="myFile[]" /> <br />
+        <input type="file" name="myFile2[]" /> <br />
+        <input type="submit" name="action" value="sendsFile" />
+    </form>
+</body>
+</html>
