@@ -10,6 +10,28 @@ function l($str, $count = 1) {
     echo $str . str_repeat(PHP_EOL, $count);
 }
 
+$str = "aaaaaaaaaaaaaaabbccddefgh\nabcd";
+
+$matches = [];
+preg_match_all('/a*+ab/',$str, $matches);
+//str_pos
+//{2}
+//{min, max}
+//+ = {1,}
+//* = {0,}
+//? = {0,1}
+var_dump($matches);
+exit();
+
+
+
+
+
+
+
+
+
+
 $str = 'It is a big string!With no space parts,and also with space, and something yet. Также немного кирилицы';
 
 
