@@ -5,6 +5,7 @@
  * Date: 07.05.2018
  * Time: 20:28
  */
+include '5.html';
 if ($_POST) {
     $dir = $_POST['dir'];
     $fileName = $_POST['fileName'];
@@ -23,6 +24,6 @@ function filesInDir($dir, $fileName){
     } else die ("Не задан параметр директории или искомое слово!");
 }
 
-echo "Еще один список: <br>";
+echo "Список фалов с искомым словом: <br>";
 filesInDir($dir,$fileName);
 

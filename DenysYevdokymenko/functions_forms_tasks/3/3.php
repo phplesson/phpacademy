@@ -6,7 +6,7 @@
  * Time: 17:24
  */
 
-
+include '3.html';
 
 function sortByLenght()
 {
@@ -30,4 +30,6 @@ return $arr;
 file_put_contents('newText.txt', implode(" ",sortByLenght()));
 
 echo file_get_contents('newText.txt');
+
+
 

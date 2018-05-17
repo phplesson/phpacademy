@@ -5,7 +5,7 @@
  * Date: 04.05.2018
  * Time: 14:49
  */
-
+include '1.html';
 $text1 = $_POST['text1'];
 $text2 = $_POST['text2'];
 function getCommonWords($a,$b)

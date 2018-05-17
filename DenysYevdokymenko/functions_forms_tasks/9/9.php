@@ -5,7 +5,7 @@
  * Date: 04.05.2018
  * Time: 14:49
  */
-//include 'form.html';
+include '9.html';
 $text = $_POST['text'];
 function reversText($a)
 {

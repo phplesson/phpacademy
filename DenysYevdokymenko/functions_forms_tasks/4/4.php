@@ -5,6 +5,7 @@
  * Date: 07.05.2018
  * Time: 20:28
  */
+include '4.html';
 if ($_POST) {
     $dir = $_POST['dir'];
 }

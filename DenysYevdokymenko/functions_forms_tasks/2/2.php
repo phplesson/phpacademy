@@ -5,7 +5,7 @@
  * Date: 04.05.2018
  * Time: 14:49
  */
-//include 'form.html';
+include '2.html';
 $text = $_POST['text'];
 function getTop3Words($a)
 {
