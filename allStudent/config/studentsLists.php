@@ -42,4 +42,10 @@ return [
             'dz another' => '#',
         ],
     ],
+    'BohdanBudak' => [
+        'hint' => 'homeworks',
+        'subMenu' => [
+            '2018.26.04' => 'BohdanBudak/BohdanBudak2018.04.26/index.php',
+        ],
+    ],
 ];
