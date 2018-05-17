@@ -17,7 +17,7 @@
  </head>
  <body>
   <form method="POST" enctype="application/x-www-form-urlencoded" action="index.php?action=10.php">
-    <p><b>Введите текст. Слова чувствительны к регистру (надо поправить!)</b></p>
+    <p><b>Задача 10. Функция, которая считает кол-во уникальных слов в тексте. Поддерживается UTF-8.</b></p>
     <p><textarea rows="10" cols="45" name="textA"></textarea></p>
     <p><input type="submit" value="Посчитать уникальные слова"></p>
   </form>

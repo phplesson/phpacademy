@@ -17,7 +17,7 @@ $interfaceArray = array(
         $wordsArrayLength = count($wordsArray);
         //циклом for пройдемся по массиву со словами и преобразуем все слова в нижний регистр:
         for($i=0; $i<$wordsArrayLength; $i++) {
-            $wordsArray[$i] = strtolower($wordsArray[$i]);
+            $wordsArray[$i] = mb_strtolower($wordsArray[$i], 'UTF-8');
         }
         $wordCounter = 0;
         $uniqWords = array();
