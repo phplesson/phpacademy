@@ -72,7 +72,7 @@ $arr = preg_split('/\\b\\W*/u', $str, -1, PREG_SPLIT_NO_EMPTY);
 var_dump($arr);
 
 
-exit();
+
 
 
 
@@ -98,18 +98,18 @@ for($i = 0; $i < 1000000; $i++) {
 echo 'GENERATE - ' . (microtime(true) - $time) . PHP_EOL;
 $time = microtime(true);
 
-$result1 = f1($array);
+f1($array);
 echo 'MODE1 - ' . (microtime(true) - $time) . PHP_EOL;
 $time = microtime(true);
 
-$result2 = f2($array);
+f2($array);
 echo 'MODE2 - ' . (microtime(true) - $time) . PHP_EOL;
 $time = microtime(true);
 
-$result3 = f3($array);
+f3($array);
 echo 'MODE3 - ' . (microtime(true) - $time) . PHP_EOL;
 $time = microtime(true);
 
-$result3 = f4($array);
+f4($array);
 echo 'MODE4 - ' . (microtime(true) - $time) . PHP_EOL;
 $time = microtime(true);
