@@ -1,19 +1,20 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alex
- * Date: 05.05.18
- * Time: 23:44
- */
 
-return [
-    'description' => 'function show all files in given directory',
-    'func' => function($a, $b) {
-        return $a + $b;
-    },
-    'paramGenerator' => function () {
-        return [mt_rand(1,1000), mt_rand(1, 1000)];
-    },
-    'argCount' => 2,
-    'view' => 'view/sum.php',
-];
+ return [
+ 'text' => 'функция которая возвращает Топ 3 длинных слова',
+ 'paramCount' => '1',
+ 'func' => function($a){
+	$arr = array_flip(explode(' ', $a));
+		foreach ($arr as $word => $length) {
+    	$arr[$word] = mb_strlen($word);
+		}
+		asort($arr);
+		$result = array_slice($arr, -3, 3);
+	 	return $result;
+	},
+ 'paramGenerator' => function() {
+ 	 //$a = $_POST ['a'];
+	  return $result;
+	 },
+ 'view' => 'view/3long.php',
+ ];
