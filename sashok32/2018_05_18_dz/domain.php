@@ -30,7 +30,7 @@
     ];
 	
 	$input = array_rand($domain);
-	$regexp = '/^([a-z]+[a-z0-9-]*[a-z0-9]*.)+[a-z]{2,4}/';
+	$regexp = '/^([a-z]([-a-z0-9]*[a-z0-9])*.)+[a-z]{2,4}/';
 	 
 	 if (preg_match ($regexp, $input)) {
 		 
