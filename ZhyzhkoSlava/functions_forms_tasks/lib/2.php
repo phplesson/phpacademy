@@ -1,30 +1,16 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alex
- * Date: 05.05.18
- * Time: 23:44
- */
 
-return [
-    'description' => 'function calculates md5 sum of given text',
-    'func' => function($a) {
-        return md5($a);
+ return [
+ 'text' => 'Функция при отправке формы должена выдавать только те слова, которые есть и в первом и во втором поле ввода.',
+ 'paramCount' => '2',
+ 'func' => function($a, $b){
+        $a=explode(' ',$a);
+        $b=explode(' ',$b);
+        $res = array_intersect($a, $b);
+        $result = implode(",", $res);
+        return $result;
     },
-    'paramGenerator' => function () {
-        $symbols = 'qwertyuiop asdfghjkl zxcvbnm ';
-        $maxIndex = strlen($symbols) - 1;
-        
-        $strLen = mt_rand(10,50);
-        
-        $str = '';
-        
-        while(strlen($str) < $strLen) {
-            $str .= $symbols[mt_rand(0, $maxIndex)];
-        }
-        
-        return [$str];
-    },
-    'argCount' => 1,
-    'view' => 'view/md5sum.php',
+ 'paramGenerator' => function() {
+     },
+ 'view' => 'view/dellen.php',
 ];
