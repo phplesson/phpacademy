@@ -3,6 +3,11 @@ ini_set('session.save_path', '/Users/andrey/Sites/sessions');
 //ini_set('upload_tmp_dir', '/Users/andrey/Sites/tmp2');
 require_once('functions.php');
 @session_start();
+define('STORAGE_ROOT_FOLD', './');
+define('UPL_FILES', 'uploaded/');
+define('THMB_FILES', '_thumb/');
+define('UPL_FILESTORAGEPATH', STORAGE_ROOT_FOLD.UPL_FILES);
+define('THMB_FILESTORAGEPATH', STORAGE_ROOT_FOLD.THMB_FILES);
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -23,18 +28,21 @@ switch($action) {
     case 'upload':
         echo userGreetings();
         if(userLoggedIn()) {
-            echo uploadFiles();
+            echo uploadFiles (UPL_FILESTORAGEPATH, THMB_FILESTORAGEPATH);
         }
     break;
     case 'gallery':
         echo userGreetings();
         if(userLoggedIn()) {
-            showFiles();
+            showFiles(UPL_FILESTORAGEPATH, THMB_FILESTORAGEPATH);
         }
     break;
     case 'stat':
         echo userGreetings();
     break;
+    case 'download':
+        downloadAttachment (UPL_FILESTORAGEPATH, $_GET['fname']);
+        break;
     default:
         echo userGreetings();
 }

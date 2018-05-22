@@ -29,7 +29,7 @@ function userGreetings () {
     }
 }
 
-function uploadFiles () {
+function uploadFiles ($targetDir, $thumbDir) {
     $uploadForm = "
     <form method='POST' enctype='multipart/form-data' action='' />
     <input type='hidden' name='MAX_FILE_SIZE' value='2000000' />
@@ -39,11 +39,13 @@ function uploadFiles () {
     <p><input type='submit' name='uploadButton' value='Загрузить' /><input type='submit' name='uploadButton2' value='Загрузить и перейти' /></p>
     </form>
     ";
-    $targetDir = "./";
     $saveName = $targetDir.basename($_FILES['myFile']['name']);
     $supportedFiles = ['image/jpeg', 'image/png', 'image/gif', 'text/plain', 'application/pdf']; //array with allowed MIME-TYPEs
 
-    if (isset($_POST['uploadForm1'])) {
+    if(isset($_POST['uploadButton2'])) {
+        header("Location: index.php?action=gallery");
+    }
+    if(isset($_POST['uploadForm1'])) {
         if ($_FILES['myFile']['error'] !== UPLOAD_ERR_OK) {
             echo "<p>File was uploaded with errors. Error: {$_FILES['myFile']['error']}</p>";
 
@@ -57,7 +59,7 @@ function uploadFiles () {
                 if(!$moveResult) {
                     echo "<p>Can't move uploaded file.</p>";
                 } else {
-                    $thmbPath = imgThumbGen($saveName, $targetDir, 150); //if we sucsessfully replaced uploaded file, let's generate thumbnail for it!
+                    $thmbPath = imgThumbGen($saveName, $thumbDir, 150); //if we sucsessfully replaced uploaded file, let's generate thumbnail for it!
 
                     $chmodResult1 = chmod($saveName, 0777);
                     $chmodResult2 = chmod($thmbPath, 0777);
@@ -70,8 +72,7 @@ function uploadFiles () {
     return ($uploadForm);
 }
 
-function showFiles() {
-    $sourceDir = "./";
+function showFiles($sourceDir, $thumbDir) {
     $fileList = scandir($sourceDir);
     echo '<ul>';
     foreach($fileList as $value) {
@@ -79,10 +80,44 @@ function showFiles() {
         // we check $mimeType == 'directory' because is_dir() not works, and we don't want show directoris;
         // also, we don't want to display images in list, we will show them below as icons.
         if($mimeType == 'directory' || $mimeType == 'image/jpeg' || $mimeType == 'image/png' || $mimeType == 'image/gif') {continue;};
-        echo '<li>'.$value.' *** TYPE='.mime_content_type($sourceDir.$value).'</li>';
-        //echo '<li>'.$value.'</li>';
+        echo '<li>'.'<a href=\'index.php?action=download&fname='.$value.'\'>'.'[DWNLD]'.$value.'</a>'.'</li>';
+
     }
     echo '</ul>';
+    foreach ($fileList as $value) {
+        $mimeType = mime_content_type($sourceDir.$value); //We check actual file filetype...
+        if($mimeType == 'image/jpeg' || $mimeType == 'image/png' || $mimeType == 'image/gif') {
+            $ext   = pathinfo($value, PATHINFO_EXTENSION);
+            echo '<a href=\''.$sourceDir.$value.'\' target=\'_blank\'><img src=\''.$thumbDir.basename($value, '.'.$ext).'_thumb.'.$ext.'\'></a>'; //... but show thumbnails of them
+        }
+    }
+}
+
+function downloadAttachment ($sourceDir, $fileName) {
+    //$sourceDir - directory contains uploaded files,
+    //$fileName - file which we want to open/download, usually it is in $_GET[fname]
+    if(!empty($fileName)) {
+        $fullFileName = $sourceDir.$fileName;
+        if (!file_exists($fullFileName) || !is_readable($fullFileName)) {
+            http_response_code(404);
+            echo "404 file [$fullFileName] was not found on webserver.";
+        } else {
+            http_response_code(200);
+
+            //headers
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename="'.basename($fullFileName).'"');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate');
+            header('Pragma: public');
+            header('Content-Length: '.filesize($fullFileName));
+            readfile($fullFileName);
+        }
+    } else {
+        http_response_code(400);
+        echo "<p>no file was specified</p>";
+    }
 }
 
 function imgThumbGen($srcFilePath, $destFoldPath, $thmbHW) {
