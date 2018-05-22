@@ -7,6 +7,6 @@ return [
 		$InputArraySecond = explode(' ',$b);
 		return array_intersect($InputArrayFirst, $InputArraySecond);
 	},
-    'argCount' => 2,
-    'inputType' => 'textArea',
+    'inputType' => ['textarea'=>2, 'file multiple'=>2],
+	'view' => 'views/view01.php',
 ];

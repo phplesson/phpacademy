@@ -1,17 +1,15 @@
 <?php
 
-if (isset($_POST['data'])) {
-	$normalizeData = json_decode($_POST['data'], true);
-	
-	if (in_array('file', $normalizeData['inputType'])) {
+return [
+	'generateForm' => function($inputData){
+	if (in_array('file', $inputData)) {
 		$additionalAttr = "enctype='multipart/form-data'";
 	} else {
 		$additionalAttr = NULL;
 	}
-	var_dump($normalizeData);
-	echo "<form method='post' enctype='multipart/form-data' id='form' name='$normalizeData[key]'>";
+	echo "<form method='post' enctype='multipart/form-data' id='form' name='$inputData[key]' action='$inputData[link]'>";
 	
-	foreach ($normalizeData['inputType'] as $input => $count) {
+	foreach ($inputData as $input => $count) {
 		
 		$keywords = preg_split("/[\s,]+/", $input);
 		
@@ -32,7 +30,7 @@ if (isset($_POST['data'])) {
 	}
 	echo "<input type='submit' id='sf'>";
 	echo "</form>";
-}
-
-
+		
+	}
+]
 ?>

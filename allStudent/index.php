@@ -8,14 +8,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <?php
-    error_reporting(1);
-    //get $menuConfig
-    $menuConfig = include('config/studentsLists.php');
-    //make base url.
-    $needFolder = '../';
-
-    ?>
+	<?php
+	error_reporting(1);
+	//get $menuConfig
+	$menuConfig = include('config/studentsLists.php');
+	//make base url.
+	$needFolder = '../';
+	
+	?>
 </head>
 <body>
 <div class="container">
@@ -30,22 +30,22 @@
                 <input type="checkbox" id="homeWork">
                 <label for="homeWork"><img src="img/Arrow.png" class="arrow">Студенты</label>
                 <ul>
-                    <?php foreach ($menuConfig as $name => $config) { ?>
+					<?php foreach ($menuConfig as $name => $config) { ?>
                         <li>
                             <div class="sub-item">
                                 <input type="checkbox" id="<?= sha1($name); ?>">
                                 <label for="<?= sha1($name); ?>"><img src="img/Arrow.png" class="arrow"><?= $name; ?>
                                 </label>
                                 <ul>
-                                    <?php foreach ($config['subMenu'] as $dzName => $dzLink) { ?>
+									<?php foreach ($config['subMenu'] as $dzName => $dzLink) { ?>
                                         <li>
-                                            <a class="<?= $name; ?>" href="<?= ($needFolder . $dzLink); ?>"><?= $dzName; ?></a>
+                                            <a class="dz_link" href="<?= ($needFolder . $dzLink); ?>"><?= $dzName; ?></a>
                                         </li>
-                                    <?php } ?>
+									<?php } ?>
                                 </ul>
                             </div>
                         </li>
-                    <?php } ?>
+					<?php } ?>
                 </ul>
             </div>
 
@@ -70,101 +70,75 @@
  -->
     </nav>
     <div class="content">
-        <div class="taskContent">Task Content</div>
-        <?php
-        if($_POST['user']=='AlexPshegodsky') {
-            include "../AlexPshegodsky/04phpBase/functions_forms_tasks/loops.php";
-        }
+        <div class="task-info">
+        
+        </div>
+        <div class="form">
+        
+        </div>
+        <div class="response">
+        
+        </div>
 
-        echo "<ul>";
-        foreach ($urls as $url) {
-
-            echo '<li><a class="task" data="task='.$url['task'].'&showform=1&user=AlexPshegodsky" href="">'.$url["name"].'</a></li>';
-        }
-
-        echo "</ul>";
-        var_dump($_FILES);
-        ?>
-
-        <div id="responde"></div>
     </div>
-
 
 
 </div>
 
+
 <script>
-
-    $(document).on('click', "a.task", function () {
-        $.ajax({
-            type: 'post',
-            url: '',
-            data: $(this).attr("data"), //'task=\'.$url[\'task\'].\'&showform',
-            success: function (data) {
-                $('#responde').html($(data).find('#form'));
-            }
-        });
-        return false;
-    });
-
-
-    $(document).on('submit', "#form", function () {
-        $.ajax({
-            type: 'post',
-            url: '',
-            data: $('#form').serialize(),
-            success: function (data) {
-                console.log(data);
-                console.log($(data).find('#responde'));
-                $('#responde').html($(data).find('#result'));
-            }
-        });
-        return false;
-    });
-
-
-    // $(document).on('submit', "#form", function () {
-    //
-    //     var data = new FormData();
-    //     $.('#form').files(function (file) {
-    //         data.append(file);
-    //     });
-    //     console.log(data);
-    //     console.log(file);
-    //     $.ajax({
-    //         url: '',
-    //         data: data,
-    //         cache: false,
-    //         contentType: false,
-    //         processData: false,
-    //         method: 'POST',
-    //         type: 'post',
-    //         success: function (data) {
-    //             alert(data);
-    //         }
-    //     });
-    //     //return false; // for good measure
-    // });
-
-
-
-    $('a.AlexPshegodsky').click(function(homework) {
+    var a_href;
+    $('.dz_link').click(function (homework) {
         homework.preventDefault();
+        a_href = $(this).attr('href');
         $.ajax({
             type: 'post',
-            data: 'user=AlexPshegodsky',
+            url: $(this).attr('href'),
             success: function (data) {
-                $('.content').replaceWith($(data).find('.content'));
+                $('.task-info').html(data);
             }
         });
-        return false; // for good measure
+        return false;
     });
 
+    $(document).on('click', ".task_link", function (task) {
+        task.preventDefault();
+        $.ajax({
+            type: 'post',
+            data: {'action': $(this).attr('name')},
+            url: a_href,
+            success: function (data) {
+                var ajaxResponse = $(data).filter('.info');
+                var ajaxResponse2 = $(data).filter('.home');
+                console.log(ajaxResponse2);
+                console.log(ajaxResponse);
+                // $('.task-info').html($(data).find('.home'));
+                $('.task-info').html(ajaxResponse2,ajaxResponse);
+                $('.form').html($(data).filter('#form'));
+            }
+        });
+        return false;
+    });
 
+    $(document).on('submit', "#form", function (formSend) {
+        formSend.preventDefault();
+        var formData = new FormData(document.getElementById("form"));
+        formData.append('action', $(this).attr('name'));
 
+        $.ajax({
+            url: a_href,
+            type: 'POST',
+            success: function (frespond) {
+                console.log(frespond);
+                $('.response').append($(frespond).filter('.respond'));
+            },
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false
+        });
 
-
-
+    });
 </script>
 
 </body>
