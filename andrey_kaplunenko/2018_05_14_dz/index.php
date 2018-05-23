@@ -1,5 +1,5 @@
 <?php
-ini_set('session.save_path', '/Users/andrey/Sites/sessions');
+//ini_set('session.save_path', '/Users/andrey/Sites/sessions');
 //ini_set('upload_tmp_dir', '/Users/andrey/Sites/tmp2');
 require_once('functions.php');
 @session_start();
@@ -8,6 +8,9 @@ define('UPL_FILES', 'uploaded/');
 define('THMB_FILES', '_thumb/');
 define('UPL_FILESTORAGEPATH', STORAGE_ROOT_FOLD.UPL_FILES);
 define('THMB_FILESTORAGEPATH', STORAGE_ROOT_FOLD.THMB_FILES);
+if(!userLoggedIn()) { //explicit initialize statistic variables (imgCount=0, pdfCount=0...) only if user not logged in
+    statReadWriteInit('INIT', null, null);
+}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -39,7 +42,7 @@ switch($action) {
     case 'stat':
         echo userGreetings();
         if(userLoggedIn()) {
-            statReadWrite('READ', UPL_FILESTORAGEPATH, null);
+            statReadWriteInit('READ', UPL_FILESTORAGEPATH, null);
         }
     break;
     case 'download':
@@ -50,30 +53,29 @@ switch($action) {
 }
 ?>
 
-<?php
-echo '<pre><br>Your system tmp folder for uploads: '.ini_get('upload_tmp_dir').'</pre>';
-?>
-
 <table>
     <tr>
-        <td><?php echo '<pre>'.'$_POST array:'.'</pre>';?></td>
-        <td><?php echo '<pre>'.'$_FILES array:'.'</pre>';?></td>
-        <td><?php echo '<pre>'.'$_SESSION array:'.'</pre>';?></td>
+        <td style="background-color: #808080" colspan="3"><?php echo '<pre>Your system tmp folder for uploads: '.ini_get('upload_tmp_dir').'</pre>';?></td>
     </tr>
     <tr>
-        <td valign="top"><?php
+        <td style="background-color: #AAAAAA"><?php echo '<pre>'.'$_POST array:'.'</pre>';?></td>
+        <td style="background-color: #CCCCCC"><?php echo '<pre>'.'$_FILES array:'.'</pre>';?></td>
+        <td style="background-color: #EEEEEE"><?php echo '<pre>'.'$_SESSION array:'.'</pre>';?></td>
+    </tr>
+    <tr>
+        <td style="background-color: #AAAAAA" valign="top"><?php
             echo '<pre>';
             var_dump($_POST);
             echo '</pre>';
             ?>
         </td>
-        <td valign="top"><?php
+        <td style="background-color: #CCCCCC" valign="top"><?php
             echo '<pre>';
             var_dump($_FILES);
             echo '</pre>';
             ?>
         </td>
-        <td valign="top"><?php
+        <td style="background-color: #EEEEEE" valign="top"><?php
             echo '<pre>';
             var_dump($_SESSION);
             echo '</pre>';

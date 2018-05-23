@@ -59,7 +59,7 @@ function uploadFiles ($targetDir, $thumbDir) {
                 if(!$moveResult) {
                     echo "<p>Can't move uploaded file.</p>";
                 } else {
-                    statReadWrite('WRITE', null, $saveName); //this is our function for calculate, read, and reset statistics
+                    statReadWriteInit('WRITE', null, $saveName); //this is our function for calculate, read, and reset statistics
                     $thmbPath = imgThumbGen($saveName, $thumbDir, 150); //let's generate thumbnail if uploaded file is image. If file not image, imgThumbGen() ignore it
                     $chmodResult1 = chmod($saveName, 0777);
                     if($thmbPath != null) { //we change thumbnail permissions if thumbnail actually generated, else (for txt and pdf...) just $chmodResult2 = true
@@ -75,6 +75,7 @@ function uploadFiles ($targetDir, $thumbDir) {
 
 function showFiles($sourceDir, $thumbDir) {
     $fileList = scandir($sourceDir);
+    //------- BEGIN: show all NOT-image files --------------------------------------------------------------------------
     echo '<ul>';
     foreach($fileList as $value) {
         $mimeType = mime_content_type($sourceDir.$value);
@@ -82,9 +83,11 @@ function showFiles($sourceDir, $thumbDir) {
         // also, we don't want to display images in list, we will show them below as icons.
         if($mimeType == 'directory' || $mimeType == 'image/jpeg' || $mimeType == 'image/png' || $mimeType == 'image/gif') {continue;};
         echo '<li>'.'<a href=\'index.php?action=download&fname='.$value.'\'>'.'[DWNLD]'.$value.'</a>'.'</li>';
-
     }
     echo '</ul>';
+    //------- END: show all NOT-image files ----------------------------------------------------------------------------
+
+    //------- BEGIN: show all IMAGE files as thumbnail linked to full-size ---------------------------------------------
     foreach ($fileList as $value) {
         $mimeType = mime_content_type($sourceDir.$value); //We check actual file filetype...
         if($mimeType == 'image/jpeg' || $mimeType == 'image/png' || $mimeType == 'image/gif') {
@@ -92,6 +95,7 @@ function showFiles($sourceDir, $thumbDir) {
             echo '<a href=\''.$sourceDir.$value.'\' target=\'_blank\'><img src=\''.$thumbDir.basename($value, '.'.$ext).'_thumb.'.$ext.'\'></a>'; //... but show thumbnails of them
         }
     }
+    //------- END: show all IMAGE files as thumbnail linked to full-size -----------------------------------------------
 }
 
 function downloadAttachment ($sourceDir, $fileName) {
@@ -121,8 +125,17 @@ function downloadAttachment ($sourceDir, $fileName) {
     }
 }
 
-function statReadWrite($mode, $sourceDir, $fileFullPath) {
+function statReadWriteInit($mode, $sourceDir, $fileFullPath) {
+    //function statReadWriteInit is for READ, WRITE and RESET statistics.
+    //It can work in one of three modes:
+    //statReadWriteInit('READ', ...) - calculate statistic variables basing on amount of files in upload_folder AND read uploaded counters from $_SESSION array.
+    //statReadWriteInit('WRITE', ...) - when user upload a file, we call this function with WRITE parameter, so counter of mime-type will be ++ and put to $_SESSION array
+    //statReadWriteInit('INIT', ...) - initialization of static variables in $_SESSION array. Such as $_SESSION['stat']['img/pdf/txt/otherCount'] = 0;
+
     if($mode == 'READ') {
+        if(isset($_POST['resetBt'])) {
+            statReadWriteInit('INIT', null, null);
+        }
         $imgCounter = $pdfCounter = $txtCounter = $otherCounter = $folderCounter = 0; //in this variables we'll calculate quantity of files specified types
         $fileList = scandir($sourceDir);
         foreach($fileList as $value) {
@@ -134,21 +147,35 @@ function statReadWrite($mode, $sourceDir, $fileFullPath) {
             $otherCounter++;
         }
 
-        echo '<br>---------------------------<br>';
-        echo 'Статистика нашей галлереи:<br>';
-        echo 'Изображений: '.$imgCounter.'<br>';
-        echo 'PDF документов: '.$pdfCounter.'<br>';
-        echo 'Plain-text документов: '.$txtCounter.'<br>';
-        echo 'Папок: '.$folderCounter.'<br>';
-        echo 'Файлов других типов: '.$otherCounter.'<br>';
+        echo "
+        <table>
+            <tr>
+                <td align='right'><p></p></td><td><p>Всего загружено:</p></td><td><p>За текущий сеанс {$_SESSION['user']}:</p></td>
+            </tr>
+            <tr>
+                <td align='right'><p>Изображений:</p></td><td align='right'><p>$imgCounter</p></td><td align='right'><p>{$_SESSION['stat']['imgCount']}</p></td>
+            </tr>
+            <tr>
+                <td align='right'><p>PDF документов:</p></td><td align='right'><p>$pdfCounter</p></td><td align='right'><p>{$_SESSION['stat']['pdfCount']}</p></td>
+            </tr>
+            <tr>
+                <td align='right'><p>TXT документов</p></td><td align='right'><p>$txtCounter</p></td><td align='right'><p>{$_SESSION['stat']['txtCount']}</p></td>
+            </tr>
+            <tr>
+                <td align='right'><p>Папок:</p></td><td align='right'><p>$folderCounter</p></td><td align='right'><p>--</p></td>
+            </tr>
+            <tr>
+                <td align='right'><p>Других файлов:</p></td><td align='right'><p>$otherCounter</p></td><td align='right'><p>{$_SESSION['stat']['otherCount']}</p></td>
+            </tr>
+            <tr>
+                <td><p></p></td><td><p></p></td><td><form method='POST' enctype='application/x-www-form-urlencoded' action='' />
+                                                    <button type='submit' name='resetBt' value='reset'>Сбросить статистику сессии</button>
+                                                    </form></td>
+            </tr>
+        </table>
+        ";
 
-        echo '<br>---------------------------<br>';
-        echo 'Пользователь '.$_SESSION['user'].' за текущую сессию загрузил такие файлы:<br>';
-        echo 'Изображений: '.$_SESSION['stat']['imgCount'].'<br>';
-        echo 'PDF документов: '.$_SESSION['stat']['pdfCount'].'<br>';
-        echo 'Plain-text документов: '.$_SESSION['stat']['txtCount'].'<br>';
-        //echo 'Папок: '.$_SESSION['stat']['directory'].'<br>';
-        echo 'Файлов других типов: '.$_SESSION['stat']['otherCount'].'<br>';
+        return true;
 
     } elseif($mode == 'WRITE') {
         $fileType = mime_content_type($fileFullPath);
@@ -163,9 +190,18 @@ function statReadWrite($mode, $sourceDir, $fileFullPath) {
                 $_SESSION['stat']['txtCount']++;
                 break;
             default:
-                $_SESSION['stat']['otherFileType']++;
+                $_SESSION['stat']['otherCount']++;
         }
-    } else return (null);
+        return true;
+
+    } elseif($mode == 'INIT') {
+        $_SESSION['stat']['imgCount'] = 0;
+        $_SESSION['stat']['pdfCount'] = 0;
+        $_SESSION['stat']['txtCount'] = 0;
+        $_SESSION['stat']['otherCount'] = 0;
+        return true;
+
+    } else return false;
 }
 
 function imgThumbGen($srcFilePath, $destFoldPath, $thmbHW) {
