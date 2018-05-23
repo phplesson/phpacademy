@@ -11,13 +11,12 @@ define('THMB_FILESTORAGEPATH', STORAGE_ROOT_FOLD.THMB_FILES);
 ?>
 <!DOCTYPE HTML>
 <html>
- <head>
-  <meta charset="utf-8">
-  <title>Файловая галлерея.</title>
- </head>
- <body>
-<p>
- <a href="index.php?action=main">Главная</a> | <a href="index.php?action=upload">Загрузить</a> | <a href="index.php?action=gallery">Просмотреть</a> | <a href="index.php?action=stat">Статистика</a>
+<head>
+    <meta charset="utf-8">
+    <title>Файловая галлерея.</title>
+</head>
+<body>
+<p><a href="index.php?action=main">Главная</a> | <a href="index.php?action=upload">Загрузить</a> | <a href="index.php?action=gallery">Просмотреть</a> | <a href="index.php?action=stat">Статистика</a>
 </p>
 <?php
 $action = $_GET['action'];
@@ -39,6 +38,9 @@ switch($action) {
     break;
     case 'stat':
         echo userGreetings();
+        if(userLoggedIn()) {
+            statReadWrite('READ', UPL_FILESTORAGEPATH, null);
+        }
     break;
     case 'download':
         downloadAttachment (UPL_FILESTORAGEPATH, $_GET['fname']);
@@ -46,20 +48,38 @@ switch($action) {
     default:
         echo userGreetings();
 }
-echo '<pre>';
-echo 'Your system tmp folder for uploads: '.ini_get('upload_tmp_dir').'<br><br>';
-echo '$_POST array:'.'<br>';
-var_dump($_POST);
-echo '<br>';
-echo '$_FILES array:'.'<br>';
-var_dump($_FILES);
-echo '<br>';
-echo '$_SESSION array:'.'<br>';
-var_dump($_SESSION);
-echo '<br>';
-echo '</pre>';
 ?>
 
+<?php
+echo '<pre><br>Your system tmp folder for uploads: '.ini_get('upload_tmp_dir').'</pre>';
+?>
 
+<table>
+    <tr>
+        <td><?php echo '<pre>'.'$_POST array:'.'</pre>';?></td>
+        <td><?php echo '<pre>'.'$_FILES array:'.'</pre>';?></td>
+        <td><?php echo '<pre>'.'$_SESSION array:'.'</pre>';?></td>
+    </tr>
+    <tr>
+        <td valign="top"><?php
+            echo '<pre>';
+            var_dump($_POST);
+            echo '</pre>';
+            ?>
+        </td>
+        <td valign="top"><?php
+            echo '<pre>';
+            var_dump($_FILES);
+            echo '</pre>';
+            ?>
+        </td>
+        <td valign="top"><?php
+            echo '<pre>';
+            var_dump($_SESSION);
+            echo '</pre>';
+            ?>
+        </td>
+    </tr>
+</table>
 </body>
 </html>

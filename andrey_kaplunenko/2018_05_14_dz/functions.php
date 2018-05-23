@@ -59,11 +59,12 @@ function uploadFiles ($targetDir, $thumbDir) {
                 if(!$moveResult) {
                     echo "<p>Can't move uploaded file.</p>";
                 } else {
-                    $thmbPath = imgThumbGen($saveName, $thumbDir, 150); //if we sucsessfully replaced uploaded file, let's generate thumbnail for it!
-
+                    statReadWrite('WRITE', null, $saveName); //this is our function for calculate, read, and reset statistics
+                    $thmbPath = imgThumbGen($saveName, $thumbDir, 150); //let's generate thumbnail if uploaded file is image. If file not image, imgThumbGen() ignore it
                     $chmodResult1 = chmod($saveName, 0777);
-                    $chmodResult2 = chmod($thmbPath, 0777);
-
+                    if($thmbPath != null) { //we change thumbnail permissions if thumbnail actually generated, else (for txt and pdf...) just $chmodResult2 = true
+                        $chmodResult2 = chmod($thmbPath, 0777);
+                    } else {$chmodResult2 = true;};
                     if(!$chmodResult1 || !$chmodResult2) {echo "<p> Can't change uploaded file permission and(or) thumbnail file permission.</p>";}
                 }
 
@@ -118,6 +119,53 @@ function downloadAttachment ($sourceDir, $fileName) {
         http_response_code(400);
         echo "<p>no file was specified</p>";
     }
+}
+
+function statReadWrite($mode, $sourceDir, $fileFullPath) {
+    if($mode == 'READ') {
+        $imgCounter = $pdfCounter = $txtCounter = $otherCounter = $folderCounter = 0; //in this variables we'll calculate quantity of files specified types
+        $fileList = scandir($sourceDir);
+        foreach($fileList as $value) {
+            $mimeType = mime_content_type($sourceDir.$value);
+            if($mimeType == 'image/jpeg' || $mimeType == 'image/png' || $mimeType == 'image/gif') {$imgCounter++; continue;};
+            if($mimeType == 'text/plain') {$txtCounter++; continue;};
+            if($mimeType == 'application/pdf') {$pdfCounter++; continue;};
+            if($mimeType == 'directory') {$folderCounter++; continue;};
+            $otherCounter++;
+        }
+
+        echo '<br>---------------------------<br>';
+        echo 'Статистика нашей галлереи:<br>';
+        echo 'Изображений: '.$imgCounter.'<br>';
+        echo 'PDF документов: '.$pdfCounter.'<br>';
+        echo 'Plain-text документов: '.$txtCounter.'<br>';
+        echo 'Папок: '.$folderCounter.'<br>';
+        echo 'Файлов других типов: '.$otherCounter.'<br>';
+
+        echo '<br>---------------------------<br>';
+        echo 'Пользователь '.$_SESSION['user'].' за текущую сессию загрузил такие файлы:<br>';
+        echo 'Изображений: '.$_SESSION['stat']['imgCount'].'<br>';
+        echo 'PDF документов: '.$_SESSION['stat']['pdfCount'].'<br>';
+        echo 'Plain-text документов: '.$_SESSION['stat']['txtCount'].'<br>';
+        //echo 'Папок: '.$_SESSION['stat']['directory'].'<br>';
+        echo 'Файлов других типов: '.$_SESSION['stat']['otherCount'].'<br>';
+
+    } elseif($mode == 'WRITE') {
+        $fileType = mime_content_type($fileFullPath);
+        switch(true) {
+            case ($fileType == 'image/jpeg' || $fileType == 'image/png' || $fileType == 'image/gif'):
+                $_SESSION['stat']['imgCount']++;
+                break;
+            case ($fileType == 'application/pdf'):
+                $_SESSION['stat']['pdfCount']++;
+                break;
+            case ($fileType == 'text/plain'):
+                $_SESSION['stat']['txtCount']++;
+                break;
+            default:
+                $_SESSION['stat']['otherFileType']++;
+        }
+    } else return (null);
 }
 
 function imgThumbGen($srcFilePath, $destFoldPath, $thmbHW) {
