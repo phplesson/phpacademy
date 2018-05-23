@@ -1,27 +1,21 @@
 <?php
-
-$phones = array('380441221545',
-	'+380441221545',
-	'+38(044)1221545',
-	'+38 (044) 1221545',
-	'+38 (044) 122-15-45',
-	'+38 044 - 122-15-45',
-	'38 044 - 122-15-45',
-	'+38 (044) 122 15 45',
-	'+39 044 - 122-15-45',
-	'++38 044 - 122-15-45',
-	'-38 044 - 122-15-45',
-	'+38 (044) 122 15 45 12',
-	'+38 (044) 122 15 45 ',
-	'+38 (044) 122  -15 45',);
-
-$pattern = '/^(\+)?(38)( |-| - )?(\()?0( )?(4){2}(\))?( |-| - )?[0-9]{3}( |-| - )?[0-9]{2}( |-| - )?[0-9]{2}$/';
-
-foreach ($phones as $phone) {
-	
-	$result = preg_match($pattern, $phone);
-	
-	echo $phone.' result: '.$result;
-	echo "<br>";
-	
-}
+return [
+	'name' => 'Ukraine phone number validator',
+	'text' => 'Функция проверяет на корректность формата номера либо группы номеров (разделитель ",")',
+	'func' => function ($a) {
+		$result = array();
+		$phones = $a;
+		$pattern = '/^(\+)?(38)( |-| - )?(\()?0( )?(4){2}(\))?( |-| - )?[0-9]{3}( |-| - )?[0-9]{2}( |-| - )?[0-9]{2}$/';
+		var_dump($phones);
+	if (!is_array($phones)){
+		$phones = explode(',', $phones);
+		}
+		
+		foreach ($phones as $phone) {
+			$result[$phone] = preg_match($pattern, $phone);
+		}
+		return $result;
+	},
+	'inputType' => ['textarea' => 1,],
+	'view' => 'views/view01.php',
+];
