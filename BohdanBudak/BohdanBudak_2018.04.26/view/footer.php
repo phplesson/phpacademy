@@ -1,3 +1,4 @@
-<div style="padding-top:100px;">
-    <p><small>BohdanBudak production</small></p>
+<div>
+    <br /><br /><br />
+    <p><h3>BohdanBudak production</h3></p>
 </div>
