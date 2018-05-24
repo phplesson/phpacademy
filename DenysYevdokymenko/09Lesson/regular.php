@@ -28,9 +28,9 @@ function testReg($tel)
     }
 }
 
-//foreach ($tel as $item => $value) {
-//    testReg($item);
-//}
+foreach ($tel as $item => $value) {
+    testReg($item);
+}
 
 $domain = [
     'a.ru' => true,
