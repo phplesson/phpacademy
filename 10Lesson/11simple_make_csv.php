@@ -128,6 +128,36 @@ $str=<<<TTT
 17	37	166.50
 TTT;
 $str=<<<TTT
+З 	Закуска
+С 	Суп
+Г 	Горячее
+Д 	Десерт
+Н 	Напиток
+TTT;
+$str=<<<TTT
+1	З	3
+2	З	1
+3	З	6
+1	З	6
+2	З	6
+3	З 	8
+1	Г	19
+2	С	9
+3	Г	20
+1	Г	21
+2	С	12
+3	Г	16
+1	Н	31
+2	Г	14
+3	Н	30
+1	Н	32
+2	Г	16
+3	Н	31
+2	Г	18
+2	Д	26
+2	Д	28
+TTT;
+$str=<<<TTT
 1	9
 1	11	1.50	50
 1	12	3.00	10
@@ -166,36 +196,6 @@ $str=<<<TTT
 8	5	2.00	70
 8	11	1.00	100
 TTT;
-$str=<<<TTT
-З 	Закуска
-С 	Суп
-Г 	Горячее
-Д 	Десерт
-Н 	Напиток
-TTT;
-$str=<<<TTT
-1	З	3
-2	З	1
-3	З	6
-1	З	6
-2	З	6
-3	З 	8
-1	Г	19
-2	С	9
-3	Г	20
-1	Г	21
-2	С	12
-3	Г	16
-1	Н	31
-2	Г	14
-3	Н	30
-1	Н	32
-2	Г	16
-3	Н	31
-2	Г	18
-2	Д	26
-2	Д	28
-TTT;
 
 $lines = explode("\n", $str);
 
@@ -205,18 +205,20 @@ array_walk($lines, function(&$value){
     $value[1] = trim($value[1]);
 });
 
-$f = fopen('menus.csv', 'w');
+$f = fopen('supplys.csv', 'w');
 
 foreach($lines as $line) {
 //    fputs($f, "{$line[0]},'{$line[1]}','{$line[2]}','{$line[3]}','{$line[4]}','{$line[5]}'\r\n");
 //    fputs($f, "{$line[0]},'{$line[1]}','{$line[2]}','{$line[3]}',{$line[4]},{$line[5]}\r\n");
-    fputs($f, "{$line[0]},'{$line[1]}',{$line[2]}\r\n");
-    echo  "{$line[0]},'{$line[1]}',{$line[2]}\r\n";
+//    fputs($f, "{$line[0]},'{$line[1]}',{$line[2]}\r\n");
+//    echo  "{$line[0]},'{$line[1]}',{$line[2]}\r\n";
 //    fputs($f, "{$line[0]},'{$line[1]}',{$line[2]},{$line[3]},{$line[4]},{$line[5]},{$line[6]},{$line[7]},{$line[8]},{$line[9]},{$line[10]}\r\n");
     
-//    $line[2] = @(int)$line[2];
-//    $line[3] = @(int)$line[3];
-//    fputs($f, "{$line[0]},{$line[1]},{$line[2]},{$line[3]}\r\n");
+    if (empty($line[2]))
+    $line[2] = @(int)$line[2];
+    if (empty($line[3]))
+    $line[3] = @(int)$line[3];
+    fputs($f, "{$line[0]},{$line[1]},{$line[2]},{$line[3]}\r\n");
 }
 
 fclose($f);
