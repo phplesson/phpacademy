@@ -10,12 +10,22 @@
  */
 return [
     'text' => 'функцию, которая выводит список файлов в заданной директории',
-    'paramCount' => 1,
-    'func' => function($path){
+    'paramCount' => 2,
+    'func' => function($dir){
+        $files = @scandir($dir);
 
-        $directories = scandir($path);
+        if ($files) {
+            $result = [];
+            foreach ($files as $file) {
+                if (is_file($dir . DIRECTORY_SEPARATOR . $file)) {
+                    $result[] = $file;
+                }
+            }
+        } else {
+            $result = false;
+        }
 
-        return $directories;
+        return $result;
     },
     'paramGenerator' => function(){
         $path = 'functions_forms_tasks';

@@ -6,12 +6,13 @@
  * Time: 16:59
  */
 
+
 return [
   'text' => 'функция поиска одинаковых слов в формах',
   'paramCount' => 2,
-  'func' => function($text_first, $text_second){
-    $arrayFirst = explode(' ',$text_first);
-    $arraySecond = explode(' ',$text_second);
+  'func' => function($text1, $text2){
+    $arrayFirst = explode(' ',$text1);
+    $arraySecond = explode(' ',$text2);
     return array_intersect($arrayFirst,$arraySecond);
 
   },

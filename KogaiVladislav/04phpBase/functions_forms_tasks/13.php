@@ -15,15 +15,19 @@
 
  */
 
-//Возвращает массив с ключами "фрукты" и значениями "кол-во фруктов"
-//array_count_values подсчитывает и "переворачивает массив"
+
 return [
     'text' => 'функция посчета количество одинаковых фруктов в строке',
     'paramCount' => 1,
-    'func' => function($text){
-        $arr = array_count_values(explode(' ', $text));
-        $arr = array_flip($arr);
-        return $arr;
+    'func' => function($a){
+
+        $arrA = explode(' ', $a);
+
+        $arrA = array_count_values($arrA);
+
+        arsort($arrA);
+
+        return $arrA;
     },
     'paramGenerator' => function(){
         $text = 'яблоко черешня вишня вишня черешня груша яблоко черешня вишня яблоко вишня вишня

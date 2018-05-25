@@ -13,28 +13,14 @@
 return [
     'text' => 'Функция добавления комментариев с фильтрами от тегов и матов',
     'paramCount' => 1,
-    'func' => function($text){
-        $ar = $_REQUEST;
-        $user = $ar['username'].' : '.$ar['msg'].'|';
+    'func' => function($string){
+        $delimiters = '/\W+/u';
+        $parts = preg_split($delimiters, $string, -1, PREG_SPLIT_NO_EMPTY);
 
-        file_put_contents('.txt',$user,FILE_APPEND);
+        $parts = array_map('mb_strtolower', $parts);
 
-        echo '<div name="lala">';
-
-        $file = file_get_contents('.txt');
-         $data = explode('|',$file);
-         foreach ($data as $key){
-        list($name, $comment) = preg_split('[:]',$key);
-        echo printf('%s8',$name.' : '.$comment.'<br>');
-    }
-
-        echo '</div>';
-        echo '<form action="" method="post" enctype="multipart/form-data">';
-        echo '<input name="username" required placeholder="name">';
-        echo '<br><textarea name="msg" rows="10"></textarea>';
-        echo '<br><br>';
-        echo '<input type="submit" name="ok" value="Отправить" >';
-        echo '</form>';
+        $result = array_intersect($parts, getForbiddenWords());
+        return !count($result);
     },
     'paramGenerator' => function(){
         $text = 'NONE';

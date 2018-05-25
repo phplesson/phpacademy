@@ -11,11 +11,18 @@
 return [
     'text' => 'Функция подсчета уникальных слов',
     'paramCount' => 1,
-    'func' => function($text){
-        $rows = iconv('windows-1251','utf-8',str_word_count($text,1));
+    'func' => function($a){
 
-        var_dump($rows);
-        return $arr;
+        $punctuation = ['.', ',', ';', ':', '–', '- ', '!', '?', '"'];
+        $aFiltered = str_replace($punctuation, ' ', $a);
+
+        $arrA = explode(' ', $aFiltered);
+
+        $arrA = array_filter($arrA);
+
+        $arrA = array_unique($arrA);
+
+        return count($arrA);
     },
     'paramGenerator' => function(){
         $text = 'а васька слушает да ест. а воз и ныне там. а вы друзья как ни садитесь, все в музыканты не годитесь. а король-то — голый. а ларчик просто открывался. а там хоть трава не расти.';

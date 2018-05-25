@@ -14,12 +14,17 @@
 return [
     'text' => 'функция меняющая предложения "задом на перед"',
     'paramCount' => 1,
-    'func' => function($text){
-        $arr = explode('.',$text);
+    'func' => function($a){
 
-        $arr = array_reverse($arr);
+        $sentences = explode('.', $a);
 
-        return $arr;
+        $sentences = array_filter($sentences);
+
+        $sentences = array_reverse($sentences);
+
+        $sentences[] = '';
+
+        return implode('. ', $sentences);
     },
     'paramGenerator' => function(){
         $text = 'А Васька слушает да ест. А воз и ныне там. 

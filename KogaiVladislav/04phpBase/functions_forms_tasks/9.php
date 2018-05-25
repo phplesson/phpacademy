@@ -11,10 +11,14 @@
 return [
     'text' => 'Функция возвращающая строку в обратном порядке',
     'paramCount' => 1,
-    'func' => function($text){
-        $row = strrev($text);
+    'func' => function($a){
+        $result = '';
 
-        return $row;
+        for ($i = 0; $i < mb_strlen($a); $i++) {
+            $result = mb_substr($a, $i, 1) . $result;
+        }
+
+        return $result;
     },
     'paramGenerator' => function(){
         $text = 'abcde';

@@ -8,34 +8,65 @@
  * текстовом поле и добавить его. Все добавленные комментарии выводятся над текстовым полем.</p>
 
  */
-return [
-    'text' => 'Функция добавления комментариев',
-    'paramCount' => 1,
-    'func' => function(){
-        $ar = $_REQUEST;
-        $user = $ar['username'].' : '.$ar['msg'].'|';
+function getDataDir()
+{
+    return __DIR__ . DIRECTORY_SEPARATOR . '7' . DIRECTORY_SEPARATOR . 'data';
+}
 
-        file_put_contents('.txt',$user,FILE_APPEND);
+function getDataCommentsPath()
+{
+    return getDataDir() . DIRECTORY_SEPARATOR . 'comments.txt';
+}
 
-        echo '<div name="lala">';
+function getComments()
+{
+    $fileComments = getDataCommentsPath();
 
-        $file = file_get_contents('.txt');
-        $data = explode('|',$file);
-        foreach ($data as $key){
-            list($name, $comment) = preg_split('[:]',$key);
-            echo printf('%s8',$name.' : '.$comment.'<br>');
-        }
-
-        echo '</div>';
-        echo '<form action="" method="post" enctype="multipart/form-data">';
-        echo '<input name="username" required placeholder="name">';
-        echo '<br><textarea name="msg" rows="10"></textarea>';
-        echo '<br><br>';
-        echo '<input type="submit" name="ok" value="Отправить" >';
-        echo '</form>';
-    },
-    'paramGenerator' => function(){
-        $text = 'NONE';
-        return [$text];
+    if (file_exists($fileComments)) {
+        $result = array_map(function ($s) {
+            return unserialize($s);
+        }, file($fileComments));
+        $result = array_reverse($result);
+    } else {
+        $result = false;
     }
-];
+
+    return $result;
+}
+function displayComment($comment)
+{
+    ?>
+    <article class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title"><?= htmlentities($comment['name']) ?></h2>
+        </div>
+        <div class="panel-body">
+            <?= htmlentities($comment['message']) ?>
+        </div>
+        <div class="panel-footer text-right">
+            <small><?= htmlentities($comment['date']) ?></small>
+        </div>
+    </article>
+    <?php
+}
+
+function addComment($name, $message)
+{
+    $fileComments = getDataCommentsPath();
+
+    $handler = fopen($fileComments, 'a');
+    if (flock($handler, LOCK_EX)) {
+        $date = date('d-m-Y H:i:s');
+        $comment = compact('name', 'message', 'date');
+
+        fwrite($handler, serialize($comment) . PHP_EOL);
+        flock($handler, LOCK_UN);
+        fclose($handler);
+
+        $result = true;
+    } else {
+        $result = false;
+    }
+
+    return $result;
+}

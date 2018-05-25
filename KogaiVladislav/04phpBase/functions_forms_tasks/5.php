@@ -12,14 +12,20 @@ return [
     'text' => 'функцию, которая выводит список файлов в заданной директории по поиску',
     'paramCount' => 1,
     'func' => function($dir, $word){
+        $files = @scandir($dir);
 
-        $arr=(scandir($dir));
-        for ($i = 0; $i < count($arr); $i++) {
-            $pos=strpos($arr[$i],$word);
-            if($pos!==false){
-                $result[]=$arr[$i];
+        if ($files) {
+            $result = [];
+            foreach ($files as $file) {
+                if (is_file($dir . DIRECTORY_SEPARATOR . $file) && mb_stripos($file, $word) !== false) {
+                    $result[] = $file;
+                }
             }
-        }return $result;
+        } else {
+            $result = false;
+        }
+
+        return $result;
     },
     'paramGenerator' => function(){
         $dir = 'functions_forms_tasks';
