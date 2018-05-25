@@ -11,7 +11,7 @@ $func = $array['func'];
 
 function getForbiddenWords() //список нецензурных слов
 {
-    return ['рыба', 'рыбы', 'рыбе', 'рыбу', 'рыбой'];
+    return ['мат1', 'мат2', 'мат3', 'мат4', 'мат5'];
 }
 function getDataDir()
 {
