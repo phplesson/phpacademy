@@ -1,6 +1,6 @@
 
 <?php
-	$tel = ['380441221545' => true,
+	$tels = ['380441221545' => true,
         '+380441221545' => true,
         '+38(044)1221545' => true,
         '+38 (044) 1221545' => true,
@@ -16,16 +16,13 @@
         '+38 (044) 122  -15 45' => false,
 		];
 	
-	$input = array_rand($tel);
 	$regexp = '/^[+]?38( |-| - )?[(]?0[0-9]{2}[)]?( |-| - )?[0-9]{3}( |-| - )?[0-9]{2}( |-| - )?[0-9]{2}$/';
+	foreach($tels as $tel => $result) {
+		$r = preg_match ($regexp, $tel);
+		
+		echo sprintf('%25s : %b', $tel, ($result==$r)) . PHP_EOL;
+	}
 	 
-	 if (preg_match ($regexp, $input)) {
-		 
-		 echo "<br>Номен {$input} введен корректно<br>";
-	 } else {
-		  
-		  echo "<br>Номер {$input} - не корректный!<br>";
-	 }
 
 ?>
 

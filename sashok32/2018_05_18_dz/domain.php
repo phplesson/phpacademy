@@ -1,6 +1,6 @@
 
 <?php
-	$domain = ['a.ru' => true,
+	$domains = ['a.ru' => true,
         'a.ruru' => true,
         'a.rurur' => false,
         '.ruru' => false,
@@ -28,17 +28,10 @@
         'a-b.a3.-g3.g3.ruru' => false,
         'a-b.a-c.h-k.2h-k.ruru' => false,
     ];
-	
-	$input = array_rand($domain);
+
 	$regexp = '/^([a-z]([-a-z0-9]*[a-z0-9])*.)+[a-z]{2,4}/';
-	 
-	 if (preg_match ($regexp, $input)) {
-		 
-		 echo "<br>Домен {$input} введен корректно<br>";
-	 } else {
-		  
-		  echo "<br>Домен {$input} - не корректный!<br>";
-	 }
-
-?>
-
+	foreach($domains as $domain => $result) {
+		$r = preg_match ($regexp, $domain);
+	
+		echo sprintf('%25s : %b', $domain, ($result==$r)) . PHP_EOL;
+	}
