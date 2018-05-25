@@ -82,7 +82,7 @@ ORDER BY p.product;
 
 SELECT
 	d.dish AS 'name',
-	((p.protein + p.carb) * 4.1 + p.fat * 9.3)/10 AS 'kcal per 100g',
+	SUM(((p.protein + p.carb) * 4.1 + p.fat * 9.3)*c.quantity) AS 'kcal per dish',
 	GROUP_CONCAT(' ',p.product)
 FROM dishes d, compositions c, products p
 WHERE
