@@ -44,7 +44,7 @@ GROUP BY s.supplier;
 SELECT
 	d.dish AS 'Dish_name',
 	SUM((((p.protein + p.carb) * 4.1 + p.fat * 9.3)/1000)*c.quantity) AS 'Calories',
-	SUM ((p.C /1000) * c.quantity) AS 'Vitamin C',
+	SUM((p.C /1000) * c.quantity) AS 'Vitamin C',
 	GROUP_CONCAT(p.product separator ',') AS 'List_of_products'
 FROM dishes d, compositions c, products p
 WHERE
