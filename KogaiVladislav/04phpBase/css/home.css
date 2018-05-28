@@ -1,0 +1,34 @@
+html,
+body {
+    height: 100%;
+}
+
+.wrap {
+    padding-bottom: 100px;
+    margin-bottom: -100px;
+}
+
+.fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+}
+
+.fixed-bottom hr {
+    margin-top: 0;
+}
+
+.panel > .panel-collapse > .list-group:last-child .list-group-item:last-child {
+    border-bottom: 1px solid #ddd;
+}
+
+.panel-footer {
+    border-top: 0;
+}
+
+.fa-inverse {
+    background: #337ab7;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
