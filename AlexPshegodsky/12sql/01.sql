@@ -37,3 +37,19 @@ INSERT INTO supplys VALUES (132, 121, 123, 32);
 INSERT INTO supplys VALUES (133, 121, 124, 3);
 INSERT INTO supplys VALUES (134, 121, 125, 1234);
 
+
+# через второй способ добавить запись про новый продукт в таблицу склад ;
+# а именно, обьем хранения продукта на складе, есть суммарные поставки этого продукта на склад.
+
+INSERT INTO `storage`
+SELECT idProduct,SUM(quantity) AS available, (price * SUM(quantity)) AS price
+FROM supplys
+WHERE idSupplier = 121
+GROUP BY idProduct
+
+#оновить стоимость поставки нового товара(цена)
+UPDATE  supplys
+SET price = 10
+WHERE idProduct = 124;
+
+#обновить цену на складе для нового продукта - ведь изменилась одна из поставок этого продукта вплане цены.
