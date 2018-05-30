@@ -35,6 +35,7 @@ WHERE
   d.idDishType = dt.idDishType
 GROUP BY dt.dishType;
 
+
 # сделать отчёт - город , количество поставок из этого города с ненулевым обьемом
 SELECT s.city, SUM(IF (ss.quantity=0,0,1)) AS 'total'
 FROM suppliers s, supplys ss
