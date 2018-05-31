@@ -32,3 +32,18 @@ INSERT INTO dishes (dish, idDishType, base, output, laborCost) VALUES ('Ласт
 
 #неверно указал idDishType, надо не численное значение id, а букву, поправляем:
 UPDATE dishes SET idDishType = (SELECT idDishType FROM dishTypes WHERE dishType = 'Горячее') WHERE idDish = 34;
+
+#Добавим 4 поставки перепелиных яиц, по 8 4 2 и 3 кг и разной цене. Странно яйца килограммами мерять, но пусть пока так будет )
+INSERT INTO supplys (idSupplier, idProduct, price, quantity) VALUES (9, 18, 68, 8), (9, 18, 70, 4), (9, 18, 77, 2), (9, 18, 71, 3);
+
+#Добавим общее кол-во поставленных перепелиных яиц в таблицу склад. Учтем, что обьемы поставок были разные и цена была разная, так что правильно посчитаем среднее значение цены. 
+INSERT INTO storage (idProduct, available, price)
+SELECT idProduct AS idProduct, SUM(quantity) AS available, (SUM(quantity*price)/SUM(quantity)) AS price
+FROM supplys
+WHERE idProduct = 18
+GROUP BY idProduct;
+
+#Обновим стоимость одной из поставок нового товара, вдруг оказалось что на яйца была акция, и они продавались дешевле:
+UPDATE supplys SET price = 73 WHERE idSupply = 40;
+
+
