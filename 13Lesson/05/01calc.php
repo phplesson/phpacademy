@@ -45,7 +45,10 @@ foreach($libs as $name => $lib) {
     break;
 }
 
-
+if ($library == null) {
+    echo 'Bad call' . PHP_EOL;
+    exit();
+}
 
 if ($o == '+') {
     $result = $library['add']($library, $a, $b);

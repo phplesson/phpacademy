@@ -15,29 +15,13 @@ function getZero() {
 }
 
 function add($a, $b) {
-    if (!check($a)) {
-        trigger_error("Bad input 'a' parameter:" . print_r($a, true), E_USER_WARNING);
-        $a = getZero();
-    }
-
-    if (!check($b)) {
-        trigger_error("Bad input 'b' parameter:" . print_r($b, true), E_USER_WARNING);
-        $b = getZero();
-    }
+    list($a, $b) = checkParams($a, $b);
 
     return $a + $b;
 }
 
 function sub($a, $b) {
-    if (!check($a)) {
-        trigger_error("Bad input 'a' parameter:" . print_r($a, true), E_USER_WARNING);
-        $a = getZero();
-    }
-
-    if (!check($b)) {
-        trigger_error("Bad input 'b' parameter:" . print_r($b, true), E_USER_WARNING);
-        $b = getZero();
-    }
+    list($a, $b) = checkParams($a, $b);
 
     return $a - $b;
 }
