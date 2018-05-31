@@ -6,14 +6,7 @@
  * Time: 13:12
  */
 
-$checker = include('checker.php');
-$real = include('real.php');
-$complex = include('complex.php');
-$real['checkParams'] = $checker['checkParams'];
-$complex['checkParams'] = $checker['checkParams'];
-
-$libs = ['real' => $real, 'complex' => $complex];
-
+$libs = include('getLibs.php');
 
 $values = $argv;
 
@@ -45,7 +38,7 @@ foreach($libs as $name => $lib) {
     break;
 }
 
-if ($library == null) {
+if (empty($library)) {
     echo 'Bad call' . PHP_EOL;
     exit();
 }

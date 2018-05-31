@@ -15,7 +15,8 @@ function checkParams() {
         $func = $current . 'check';
         if (!$func($value)) {
             trigger_error("bad input parameter '$key'" . print_r($value, true), E_USER_WARNING);
-            $value = getZero();
+            $func = $current . 'getZero';
+            $value = $func();
         }
     }
 
