@@ -46,7 +46,10 @@ VALUES ('Гречка',13,3,57,15,2,0,11.1,36,0)
 - одно блюдо с использованием этого продукта
 
 INSERT INTO dishes(dish,idDishType,base,output,laborCost)
-VALUES ('Каша гречневая','Г','Крупа',210,4)
+VALUES ('Каша гречневая','Г','Крупа',210,4);
+
+INSERT INTO compositions
+VALUES (34,3,10),(34,18,200)
 
 - хотябы две поставки поставщиком этого продукта
 
@@ -100,6 +103,12 @@ WHERE
 
 #оновить стоимость поставки нового товара(цена)
 
+UPDATE
+	supplys s
+SET s.price = 5.0
+WHERE s.idProduct=18 AND s.idSupplier=9;
+
+
 выборка для обновления может быть и сложной
 UPDATE
   table1 t1, table2 t2 ,..., JOIN ...
@@ -115,6 +124,24 @@ WHERE
 -- - соеденить её вместе с таблицей склада - что бы в результате были только записи связанные между собой, и только
 -- те, которые надо обновлять(касаются нового продукта)
 
+SELECT
+		p.product,
+		SUM(s.quantity*s.price)/SUM(s.quantity) AS 'newPrice'
+FROM
+		products p,
+		supplys s
+WHERE
+		p.idProduct = s.idProduct AND
+		p.product = 'Гречка';
+
+
+
+UPDATE
+	storage st
+SET
+	st.price = newPrice
+WHERE
+	st.idProduct=18;
 
 
 
