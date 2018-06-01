@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+<section>
+    <h2>get form</h2>
+
+    <form name="myForm1" action="01index.php"
+          method="GET">
+        <input type="text" name="sval"/><br/>
+
+        <input type="checkbox"
+               name="cb" value="ok"/>
+        <span>is OK?</span><br/>
+
+        <input type="radio" name="rb" value="1"/>
+        <span>White</span><br/>
+
+        <input type="radio" name="rb" value="11"/>
+        <span>Black</span><br/>
+
+        <input type="radio" name="rb" value="111"/>
+        <span>Red</span><br/>
+
+        <textarea name="ss" cols="30" rows="4">
+
+        </textarea>
+        <select name="select">
+            <option value="10">type 10</option>
+            <option value="20">type 20</option>
+            <option value="30">type 30</option>
+        </select>
+
+        <button type="submit" name="bt" value="send">
+            SEND
+        </button>
+
+        <button type="submit" name="bt2" value="send">
+            SEND
+        </button>
+
+        <button type="button" name="bt" value="send">
+            SEND
+        </button>
+
+
+        <button type="reset" name="bt" value="send">
+            RESET
+        </button>
+    </form>
+</section>
+
+<section>
+    <h2>post form</h2>
+
+    <form name="myForm1" action="01index.php"
+          method="POST" enctype="multipart/form-data">
+
+        <!--<form name="myForm1" -->
+        <!--action="01index.php" method="POST"-->
+        <!--enctype="application/x-www-form-urlencoded">-->
+
+        <input type="text" name="s"/>
+        <span>is OK?</span><br/>
+
+        <input type="checkbox"
+               name="cb" value="ok"/>
+        <span>is OK?</span><br/>
+
+        <input type="radio" name="rb" value="1"/>
+        <span>White</span><br/>
+
+        <input type="radio" name="rb" value="11"/>
+        <span>Black</span><br/>
+
+        <input type="radio" name="rb" value="111"/>
+        <span>Red</span><br/>
+
+        <button type="submit" name="bt" value="send">
+            SEND
+        </button>
+    </form>
+</section>
+
+
+<section>
+    <h2>logger form</h2>
+
+    <form name="myForm1" action="02index.php"
+          method="POST" enctype="multipart/form-data">
+
+        <!--<form name="myForm1" -->
+        <!--action="01index.php" method="POST"-->
+        <!--enctype="application/x-www-form-urlencoded">-->
+
+        <input type="text" name="s"/>
+
+        <button type="submit" name="bt" value="send">
+            SEND
+        </button>
+    </form>
+</section>
+</body>
+</html>

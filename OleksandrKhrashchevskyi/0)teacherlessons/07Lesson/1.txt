@@ -1,0 +1,24 @@
+S == 101;
+
+x0 = 101; y0 = 101 / 101;
+
+x1 = (x0 + y0) / 2; y1 = 101 / x1;
+
+x2 = (x1 + y1) / 2; y2 = 101 / x2;
+
+function sqrtHidden($x0, $y0, $accuracy) {
+$s = $x0 * $y0;
+
+$x = ($x0 + $y0) / 2;
+$y = $s / $x;
+$accuracy--;
+  if ($accuracy == 0) {
+    return $x;
+  }
+
+  return sqrtHidden($x, $y, $acuracy);
+}
+
+functino sqry($val) {
+  return sqrtHidden($val, 1, 20);
+}

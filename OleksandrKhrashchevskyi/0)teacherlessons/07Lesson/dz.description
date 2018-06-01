@@ -1,0 +1,39 @@
+test.local/phpacademy/07Lesson/04session.php?a=100&b[1]=1   add two values in the session array
+test.local/phpacademy/07Lesson/04session.php?a=             del a value from the session array
+test.local/phpacademy/07Lesson/04session.php?b[2]=2         want to add a value in the array
+                                                            but the value overwrites the existed one
+Why?
+
+----------------------------------------------------------
+
+If you do the same actions with 05session.php, the value b[2] is added, and b[1] is not missed.
+Why?
+
+
+also
+test.local/phpacademy/07Lesson/05session.php?c[1][1][1]=111
+test.local/phpacademy/07Lesson/05session.php?c[1][1][2]=112
+works fine
+
+and
+test.local/phpacademy/07Lesson/05session.php?c[1][1]=
+it deletes(unset) value c[1][1]
+
+So $_SESSION['c'][1] - is an empty array,
+cause it contained a single item before - $_SESSION['c'][1] = [1=>111,2=>222];
+
+----------------------------------------------------------
+
+Try to do the same things with 06cookie.php
+
+it supports an array value, but it does not support an array of an array values
+
+means, ?a[1]=1&a[2]=2 - it works
+?a[3][1]=31 it is ignored(it doesn't work)
+
+Why?
+
+----------------------------------------------------------
+
+using recursion with function, make a cookie.php
+what supports nested arrays
