@@ -26,7 +26,7 @@ class Checker
 
         foreach($args as $key => &$value) {
             if (!call_user_func($this->check, $value)) {
-                trigger_error("bad input parameter '$key'" . print_r($value, true), E_USER_WARNING);
+                trigger_error("bad input parameter '$key':" . print_r($value, true), E_USER_WARNING);
                 $value = call_user_func($this->getZero);
             }
         }

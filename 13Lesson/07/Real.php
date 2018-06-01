@@ -7,7 +7,12 @@
  * Time: 14:45
  */
 class Real extends Operand
-{    
+{
+    /**
+     * @var Checker
+     */
+    protected static $checker;
+    
     protected $val;
 
     public static function check($a) {
@@ -15,13 +20,13 @@ class Real extends Operand
     }
 
     public static function getZero() {
-        return new static(0);
+        return 0;
     }
 
     public static function getFromStr($str) {
         $data = [];
         if (preg_match('/^[+-]?\\d+$/', $str, $data)) {
-            return new static((int)$str);
+            return new self((int)$str);
         } else {
             return null;
         }
@@ -35,9 +40,9 @@ class Real extends Operand
     
     protected function getForResult($update) {
         if ($update) {
-            $a = this;
+            $a = $this;
         } else {
-            $a = new static($this->val);
+            $a = new self($this->val);
         }
         
         return $a;

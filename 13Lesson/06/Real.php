@@ -24,7 +24,7 @@ class Real
     }
 
     public static function getZero() {
-        return new self(0);
+        return 0;
     }
 
     public static function getFromStr($str) {

@@ -21,13 +21,13 @@ class Complex extends Operand
     }
 
     public static function getZero() {
-        return new static(0, 0);
+        return ['re' => 0, 'im' => 0];
     }
 
     public static function getFromStr($str) {
         $data = [];
         if (preg_match_all('/^([+-]?\\d+)i([+-]?\\d+)$/', $str, $data)) {
-            return new static((int)$data[1][0], (int)$data[2][0]);
+            return new self((int)$data[1][0], (int)$data[2][0]);
         } else {
             return null;
         }
@@ -44,7 +44,7 @@ class Complex extends Operand
         if ($update) {
             $a = $this;
         } else {
-            $a = new static($this->re, $this->im);
+            $a = new self($this->re, $this->im);
         }
 
         return $a;

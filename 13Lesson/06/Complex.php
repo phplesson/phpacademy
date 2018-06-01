@@ -30,7 +30,7 @@ class Complex
     }
 
     public static function getZero() {
-        return new self(0, 0);
+        return ['re' => 0, 'im' => 0];
     }
 
     public static function getFromStr($str) {
