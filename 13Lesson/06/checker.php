@@ -6,7 +6,7 @@
  * Time: 11:39
  */
 return [
-    'checkParams' => function($link) {
+    'checkParams' => function(&$link) {
         $args = func_get_args();
         array_shift($args);
 
