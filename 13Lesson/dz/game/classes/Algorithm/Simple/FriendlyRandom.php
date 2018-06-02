@@ -6,10 +6,10 @@
  * Time: 5:06
  */
 
-namespace Algorithm\Simple;
+namespace Game\Algorithm\Simple;
 
 
-use Algorithm\IAlgorithm;
+use Game\Algorithm\IAlgorithm;
 
 class FriendlyRandom extends Random
 {

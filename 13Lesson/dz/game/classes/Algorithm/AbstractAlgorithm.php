@@ -7,7 +7,7 @@
  * Time: 17:20
  */
 
-namespace Algorithm;
+namespace Game\Algorithm;
 
 abstract class AbstractAlgorithm implements IAlgorithm
 {

@@ -6,7 +6,7 @@
  * Date: 01.06.18
  * Time: 17:15
  */
-namespace Algorithm;
+namespace Game\Algorithm;
 
 interface IAlgorithm
 {

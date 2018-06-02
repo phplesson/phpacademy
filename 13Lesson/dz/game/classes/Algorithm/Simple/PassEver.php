@@ -6,11 +6,11 @@
  * Time: 5:00
  */
 
-namespace Algorithm\Simple;
+namespace Game\Algorithm\Simple;
 
 
-use Algorithm\AbstractAlgorithm;
-use Algorithm\IAlgorithm;
+use Game\Algorithm\AbstractAlgorithm;
+use Game\Algorithm\IAlgorithm;
 
 class PassEver extends AbstractAlgorithm
 {

@@ -6,11 +6,11 @@
  * Time: 4:57
  */
 
-namespace Algorithm\Simple;
+namespace Game\Algorithm\Simple;
 
 
-use Algorithm\AbstractAlgorithm;
-use Algorithm\IAlgorithm;
+use Game\Algorithm\AbstractAlgorithm;
+use Game\Algorithm\IAlgorithm;
 
 class WhistEver extends AbstractAlgorithm
 {
