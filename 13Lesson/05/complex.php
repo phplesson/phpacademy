@@ -18,7 +18,7 @@ return [
             && is_int($a['re'])
             && is_int($a['im']);
     },
-    'getZero' => function() {
+    'getZero' => function($link) {
         return ['re' => 0, 'im' => 0];
     },
     'add' => function($link, $a, $b) {

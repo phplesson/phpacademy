@@ -51,7 +51,7 @@ class Complex
 
     protected function getForResult($update) {
         if ($update) {
-            $a = this;
+            $a = $this;
         } else {
             $a = new self($this->re, $this->im);
         }

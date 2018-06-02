@@ -21,6 +21,10 @@ abstract class Operand implements IFromString
         return ($update) ? $this : clone $this;
     }
 
+    protected function checkType(Operand $a) {
+        return $a instanceof $this;
+    }
+
     /**
      * @param static $a
      * @param static $b
@@ -39,11 +43,21 @@ abstract class Operand implements IFromString
     public function add(Operand $b, $update = true) {
         $a = $this->getForResult($update);
         
+        if (!$this->checkType($b)) {
+            trigger_error('cannot add ' . $b . ' value', E_USER_ERROR);
+            return $a;
+        }
+        
         return static::_add($a, $b);
     }
     
     public function sub(Operand $b, $update = true) {
         $a = $this->getForResult($update);
+
+        if (!$this->checkType($b)) {
+            trigger_error('cannot sub ' . $b . ' value', E_USER_ERROR);
+            return $a;
+        }
         
         return static::_sub($a, $b);
     }

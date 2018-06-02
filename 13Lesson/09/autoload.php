@@ -6,7 +6,7 @@
  * Time: 15:11
  */
 
-include_once 'IFromString.php.php';
+include_once 'IFromString.php';
 include_once 'Checker.php';
 include_once 'Operand.php';
 include_once 'Complex.php';

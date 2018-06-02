@@ -14,7 +14,7 @@ return [
     'check' => function($link, $a) {
         return is_int($a);
     },
-    'getZero' => function() {
+    'getZero' => function($link) {
         return 0;
     },
     'add' => function($link, $a, $b) {

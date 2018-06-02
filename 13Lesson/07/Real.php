@@ -44,7 +44,7 @@ class Real
     
     protected function getForResult($update) {
         if ($update) {
-            $a = this;
+            $a = $this;
         } else {
             $a = new self($this->val);
         }

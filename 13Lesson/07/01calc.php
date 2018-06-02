@@ -16,13 +16,24 @@ $p2 = @$argv[3];
 
 foreach ($config as $name => $class) {
     $a = $class::getFromStr($p1);
-    $b = $class::getFromStr($p2);
     
-    if ($a !== null && $b !== null) {
+    if ($a !== null) {
         break;
     }
-    
-    $a = $b = null;
+}
+
+foreach ($config as $name => $class) {
+    $b = $class::getFromStr($p2);
+
+    if ($b !== null) {
+        break;
+    }
+}
+
+
+if ($a === null) {
+    echo 'bad call' . PHP_EOL;
+    exit();
 }
 
 if ($o == '+') {
