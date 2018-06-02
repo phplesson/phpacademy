@@ -27,7 +27,7 @@ abstract class AbstractAlgorithm implements IAlgorithm
      *
      * @var string
      */
-    private static $serName;
+    private $serName;
 
     /**
      * it depends on object instance. It is a unique identifier of an instance.
@@ -48,11 +48,7 @@ abstract class AbstractAlgorithm implements IAlgorithm
      *
      * @return static
      */
-    final protected static function createInstance() {
-        if (empty(static::$serName)) {
-            static::$serName = get_called_class();
-        }
-        
+    final protected static function createInstance() {        
         return new static();
     }
 
@@ -61,6 +57,7 @@ abstract class AbstractAlgorithm implements IAlgorithm
      */
     final private function __construct()
     {
+        $this->serName = get_called_class();
         $this->name = uniqid($this->getSerName(), true);
     }
 
@@ -71,7 +68,7 @@ abstract class AbstractAlgorithm implements IAlgorithm
      */
     final public function getSerName()
     {
-        return static::$serName;
+        return $this->serName;
     }
 
     /**
@@ -131,5 +128,5 @@ abstract class AbstractAlgorithm implements IAlgorithm
     }
 
     abstract protected function processDecision(IAlgorithm $object);
-    abstract protected function processResult(IAlgorithm $object, $result);
+    abstract protected function processResult(IAlgorithm $object, $result, $addRate);
 }

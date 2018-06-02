@@ -19,7 +19,7 @@ class PassEver extends AbstractAlgorithm
         return self::PLAY_PASS;
     }
 
-    protected function processResult(IAlgorithm $object, $result)
+    protected function processResult(IAlgorithm $object, $result, $addRate)
     {
         return true;
     }

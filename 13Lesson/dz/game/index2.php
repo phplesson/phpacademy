@@ -10,7 +10,7 @@ include_once('./vendor/autoload.php');
 
 $config = include('config.php');
 
-$game = new \Game\Simple($config);
+$game = new \Game\Evolution($config);
 
 echo $game;
 

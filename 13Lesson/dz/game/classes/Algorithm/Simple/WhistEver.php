@@ -19,7 +19,7 @@ class WhistEver extends AbstractAlgorithm
         return self::PLAY_WHIST;
     }
 
-    protected function processResult(IAlgorithm $object, $result)
+    protected function processResult(IAlgorithm $object, $result, $addRate)
     {
         return true;
     }

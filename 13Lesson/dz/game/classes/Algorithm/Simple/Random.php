@@ -19,7 +19,7 @@ class Random extends AbstractAlgorithm
         return self::POSSIBLE_ANSWER[array_rand(self::POSSIBLE_ANSWER)];
     }
 
-    protected function processResult(IAlgorithm $object, $result)
+    protected function processResult(IAlgorithm $object, $result, $addRate)
     {
         return true;
     }
