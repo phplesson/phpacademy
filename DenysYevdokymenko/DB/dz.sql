@@ -124,26 +124,41 @@ WHERE
 -- - соеденить её вместе с таблицей склада - что бы в результате были только записи связанные между собой, и только
 -- те, которые надо обновлять(касаются нового продукта)
 
-SELECT
-		p.product,
-		SUM(s.quantity*s.price)/SUM(s.quantity) AS 'newPrice'
-FROM
-		products p,
-		supplys s
-WHERE
-		p.idProduct = s.idProduct AND
-		p.product = 'Гречка';
-
-
-
+#Для одного продукта:
 UPDATE
-	storage st
+	`storage` st
 SET
-	st.price = newPrice
+	st.price = (
+	SELECT
+	     	SUM(s.quantity*s.price)/SUM(s.quantity)
+  FROM
+	  products p,
+	  supplys s
+  WHERE
+	  p.idProduct = s.idProduct AND
+	  p.product = 'Гречка'
+	GROUP BY p.idProduct)
 WHERE
 	st.idProduct=18;
+-------------------------------------------------------------------------------------------------
+#Для всех продуктов:
+UPDATE
+	`storage` st, products p
+SET
+	st.price = (
+	SELECT
+	     	SUM(s.quantity*s.price)/SUM(s.quantity)
+  FROM
+	  products p,
+	  supplys s
+  WHERE
+	  p.idProduct = s.idProduct AND
+	  p.idProduct = st.idProduct
+	GROUP BY p.idProduct) * st.available
+WHERE
+	st.idProduct=p.idProduct;
 
-
+--------------------------------------------------------------------------------------------------
 
 удаление записей
 DELETE
