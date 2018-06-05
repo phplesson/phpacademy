@@ -46,4 +46,28 @@ GROUP BY idProduct;
 #Обновим стоимость одной из поставок нового товара, вдруг оказалось что на яйца была акция, и они продавались дешевле:
 UPDATE supplys SET price = 73 WHERE idSupply = 40;
 
+#Добавим в базу еще один продукт, возьмем что-то попроще, например СОЛЬ:
+INSERT INTO products (idProduct, product, protein, fat, carb, K, Ca, Na, B2, PP, C) VALUES (19, 'Соль поваренная', 0, 0, 0, 80, 240, 390000, 0, 0, 0);
 
+#Добавим пару поставок соли, будем считать что покупаем ее в универсаме ТУЛЬСКИЙ, который уже есть в базе:
+INSERT INTO supplys (idSupplier, idProduct, price, quantity) VALUES (4, 19, 3.60, 2), (4, 19, 3.60, 4);
+
+#Добавим соль в таблицу "склад":
+INSERT INTO storage (idProduct, available, price)
+SELECT idProduct AS idProduct, SUM(quantity) AS available, (SUM(quantity*price)/SUM(quantity)) AS price
+FROM supplys
+WHERE idProduct = 19
+GROUP BY idProduct;
+
+#Обновим цену на складе (табл. storage), после того как изменилась цена одной из поставок (табл. supplys).
+#Для этого составим табличку, в которой будет текущая цена на складе, и пересчитанная усредненная по поставкам новая цена.
+#Вот эту новую усредненную цену и присвоим соответствующей ячейке поля storage.price.
+#В нашем примере мы получаем табличку только для двух новых товаров, id=18 (яйца перепелиные), id=19 (соль).
+#Ну и для разнообразия используем новый синтаксис JOIN-ON.
+UPDATE storage JOIN (
+	SELECT idProduct, (SUM(quantity*price)/SUM(quantity)) AS new_price
+	FROM supplys
+	WHERE idProduct = 18 || idProduct = 19
+	GROUP BY idProduct
+) AS avged_table ON storage.idProduct = avged_table.idProduct
+SET storage.price = avged_table.new_price;
