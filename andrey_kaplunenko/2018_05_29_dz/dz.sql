@@ -71,3 +71,26 @@ UPDATE storage JOIN (
 	GROUP BY idProduct
 ) AS avged_table ON storage.idProduct = avged_table.idProduct
 SET storage.price = avged_table.new_price;
+
+#Простым удалением удаляем запись о новом поставщике
+DELETE
+FROM suppliers
+WHERE idSupplier = 9;
+
+#Сложным удалением удаляем новые продукты из таблиц products, supplys, storage
+DELETE products, supplys, storage
+FROM products JOIN supplys JOIN storage ON (
+	products.idProduct = supplys.idProduct AND
+	supplys.idProduct = storage.idProduct	
+	)
+WHERE products.idProduct = 18 || products.idProduct = 19;
+
+#И напоследок, простым удалением удаляем новое блюдо из табл. dishes.
+#Его можно было б удалить из предыдущего запроса сложным удалением, но только в том случае если бы новое блюдо было связано с
+#табл. products через табл. compositions (по iDproduct). А так как рецепт для приготовления нового блюда я не добавлял,
+#соответственно связей с табл. products у нового блюда нет. Удаляем его непосредственно.
+DELETE
+FROM dishes
+WHERE idDish = 34;
+
+#На данный момент база вернулась к исходному состоянию - новые записи удалены.
