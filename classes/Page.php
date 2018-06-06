@@ -8,5 +8,22 @@
 
 class Page
 {
-
+	public $text;
+	
+	public function get_all()
+	{
+		$db = new Database(HOST,USER,PASSWORD,DB);
+		$result = $db->get_all_db();
+		return $result;
+	}
+	
+	public function get_one($articleId)
+	{
+	}
+	
+	public function get_body()
+	{
+	
+	}
+	
 }
