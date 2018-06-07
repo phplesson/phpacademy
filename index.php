@@ -1,9 +1,9 @@
 <?php
 include 'config/config.php';
+include 'classes/APage.php';
 include 'classes/Page.php';
 include 'classes/Database.php';
 
-$page = new Page();
 if (isset($_GET['id'])) {
     $id = (int)$_GET['id'];
     if ($id != 0){
@@ -14,6 +14,7 @@ if (isset($_GET['id'])) {
     }
 
 } else {
+	$page = new Page();
 	$content = $page->get_all();
 	echo $page->get_body($content,'main');
 }
