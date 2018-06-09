@@ -8,5 +8,10 @@
 
 class View extends APage
 {
+	public function get_one($articleId)
+	{
+		parent::get_one($articleId);
+		return $this->text;
+	}
 	
 }
