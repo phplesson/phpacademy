@@ -15,6 +15,5 @@ function checkParams() {
             $value = getZero();
         }
     }
-
     return $args;
 }

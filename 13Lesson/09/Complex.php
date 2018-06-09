@@ -7,7 +7,11 @@
  * Time: 14:45
  */
 class Complex extends Operand
-{    
+{
+    /**
+     * @var Checker
+     */
+    protected static $checker;
     protected $re;
     protected $im;
 

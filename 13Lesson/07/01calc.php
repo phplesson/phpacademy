@@ -23,6 +23,7 @@ foreach ($config as $name => $class) {
 }
 
 foreach ($config as $name => $class) {
+    /* @var $class Real */
     $b = $class::getFromStr($p2);
 
     if ($b !== null) {
