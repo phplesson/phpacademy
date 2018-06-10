@@ -15,4 +15,5 @@ return [
     '\Game\Algorithm\Simple\PassEver',
     '\Game\Algorithm\Simple\FriendlyRandom',
     '\Game\Algorithm\Example\ImplementedExample',
+    '\Game\Student\TeacherExample\DZExample',
 ];

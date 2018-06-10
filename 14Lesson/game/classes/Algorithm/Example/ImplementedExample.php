@@ -84,7 +84,7 @@ class ImplementedExample extends AbstractAlgorithm
     {
         // TODO: Implement getInstance() method.
         
-        $obj = parent::createInstance();
+        $obj = self::createInstance();
         $obj->defaultDecision = self::PLAY_PASS;
         
         return $obj;
