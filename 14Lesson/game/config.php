@@ -15,5 +15,6 @@ return [
     '\Game\Algorithm\Simple\PassEver',
     '\Game\Algorithm\Simple\FriendlyRandom',
     '\Game\Algorithm\Example\ImplementedExample',
+    //example to add your algorithm
     '\Game\Student\TeacherExample\DZExample',
 ];
