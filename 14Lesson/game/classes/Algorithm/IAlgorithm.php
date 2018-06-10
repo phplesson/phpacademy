@@ -26,7 +26,7 @@ interface IAlgorithm
     /**
      * depends object 
      *  - the same object = the same names
-     *  - different objects = differents names
+     *  - different objects = different names
      * 
      * @return string
      */

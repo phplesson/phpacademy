@@ -119,18 +119,18 @@ class Simple
         list($key1, $key2, $stat) = $this->getStat();
         ob_start();
         
-        echo str_repeat('=', 85) . PHP_EOL;
+        echo str_repeat('=', 95) . PHP_EOL;
         
-        echo sprintf('||%60s|%20s||', $key1, $key2) . PHP_EOL;
-        echo sprintf('||%60s|%20s||', '', '') . PHP_EOL;
+        echo sprintf('||%70s|%20s||', $key1, $key2) . PHP_EOL;
+        echo sprintf('||%70s|%20s||', '', '') . PHP_EOL;
         
         foreach($stat as $key => $value) {
-            echo '||' . str_repeat('-', 60) . '|' . str_repeat('-', 20) . '||' . PHP_EOL;
-            echo sprintf('||%60s|%20s||', $key, $value) . PHP_EOL;            
+            echo '||' . str_repeat('-', 70) . '|' . str_repeat('-', 20) . '||' . PHP_EOL;
+            echo sprintf('||%70s|%20s||', $key, $value) . PHP_EOL;            
         }
         
         
-        echo str_repeat('=', 85) . PHP_EOL;
+        echo str_repeat('=', 95) . PHP_EOL;
         
         return ob_get_clean();
     }
