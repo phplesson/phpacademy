@@ -13,8 +13,9 @@ abstract class Operand implements IFromString
      */
     protected static $checker;
 
-    public static function initChecker() {
-        static::$checker = new Checker([get_called_class(), 'check'], [get_called_class(), 'getZero']);
+    public static function initChecker()
+    {
+    static::$checker = new Checker([get_called_class(), 'check'], [get_called_class(), 'getZero']);
     }
 
     protected function getForResult($update) {
