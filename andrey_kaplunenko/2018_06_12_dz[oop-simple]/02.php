@@ -7,9 +7,9 @@
  */
 
 /**
- * Class human
- * @property string name
- * @property int age
+ * 2. Описать класс человек как выше, но поля сделать закрытыми(протектид), и сделать публичные методы для доступа к закрытым
+ * полям - setName($newName) getName() setAge($newAge) getAge()
+ * Создать пару обьектов и задать значения.
  */
 class human
 {
