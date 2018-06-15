@@ -37,8 +37,18 @@ class NewHuman extends Human
 
     public function __toString()
     {
-        parent::__toString();
-        return "Время создания: ".$this->labelTimeCreate."<br>";
+        if (preg_match("/[^1-4]$/",$this->age))
+        {
+            return "{$this->name} - возрастом {$this->age} лет"." Время создания: ".$this->labelTimeCreate."<br>";
+        }
+        elseif (preg_match("/[1]$/",$this->age))
+        {
+            return "{$this->name} - возрастом {$this->age} год"." Время создания: ".$this->labelTimeCreate."<br>";
+        }
+        else
+        {
+            return "{$this->name} - возрастом {$this->age} года"." Время создания: ".$this->labelTimeCreate."<br>";
+        }
     }
 }
 
