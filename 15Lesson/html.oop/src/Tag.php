@@ -8,7 +8,6 @@
 
 namespace MyHtml;
 
-
 use MyHtml\Exception\NeedMandatoryAttribute;
 
 abstract class Tag

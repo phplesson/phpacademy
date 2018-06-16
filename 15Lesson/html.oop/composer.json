@@ -1,0 +1,8 @@
+{
+  "autoload" : {
+    "psr-4" : {"MyHtml\\": "src/"}
+  },
+  "require": {
+    "psr/http-message": "^1.0"
+  }
+}
