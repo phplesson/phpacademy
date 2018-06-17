@@ -55,7 +55,9 @@ abstract class Tag
     }
     
     protected function compileAttributes() {
-        $needDefaults = array_diff($this->getRequiredAttributes(), array_keys($this->attributes));
+        $mandatory = $this->getRequiredAttributes();
+        
+        $needDefaults = array_diff($mandatory, array_keys($this->attributes));
         $possibleDefaults = array_intersect($needDefaults, array_keys($this->getDefaultAttributes()));
         $missedDefaults = array_diff($needDefaults, $possibleDefaults);
         
