@@ -12,8 +12,11 @@
  */
 
 class BlackBox {
-    protected $gear1=0;
-    protected $gear2=0;
+    protected $num1=0;
+    protected $num2=0;
+    protected $text1='';
+    protected $text2='';
+    protected $text3='';
 
     //Method, which we will use to determine calling method/function. It returns calling func name like ClassName->MethodName
     protected function getCallingMethod(){
@@ -26,10 +29,18 @@ class BlackBox {
         print_r(PHP_EOL);
     }
 
-    public function __construct($gear1, $gear2)
+    protected function concatenate ($txt1, $txt2)
     {
-        $this->gear1=$gear1;
-        $this->gear2=$gear2;
+        return $txt1.$txt2;
+    }
+
+    public function __construct($num1, $num2, $text1, $text2, $text3)
+    {
+        $this->num1=$num1;
+        $this->num2=$num2;
+        $this->text1=$text1;
+        $this->text2=$text2;
+        $this->text3=$text3;
         $this->getCallingMethod();
     }
 
@@ -55,10 +66,49 @@ class BlackBox {
         return isset($this->$name);
     }
 
+    public function __unset($name)
+    {
+        $this->getCallingMethod();
+        unset($this->$name);
+    }
+
+    //__sleep() function returns array with JUST NAMES of properties we want to serialize, not variables, not links, just names in string format.
+    public function __sleep()
+    {
+        $this->getCallingMethod();
+        return array(
+            'num2',
+            'text1',
+            'text2',
+            //and yes, we don't want text3 to be serialized
+        );
+    }
+
+    public function __wakeup()
+    {
+        $this->getCallingMethod();
+        $this->text3='assign some text to text3 after wakeup';
+    }
+
+    public function __call($name, $arguments)
+    {
+        $this->getCallingMethod();
+        if ($name === 'concatenate') { //using __call() to call defined but protected method
+            return $this->concatenate($arguments[0], $arguments[1]);
+        } else return ('calling undefined method '.$name); //using __call() to call undefined method
+    }
 
 }
 
-$blackBox1 = new BlackBox(2, 5);
-$blackBox1->gear1 = 10;
-echo $blackBox1->gear1.PHP_EOL;
-echo isset($blackBox1->gear1);
+$blackBox1 = new BlackBox(2, 5, 'first string', 'second string', 'third string');
+$blackBox1->num1 = 10;
+echo $blackBox1->num1.PHP_EOL;
+echo isset($blackBox1->num1).PHP_EOL;
+unset($blackBox1->num1); //unset num1
+$savedData = serialize($blackBox1);
+echo $savedData.PHP_EOL;
+unset ($blackBox1);
+$blackBox2 = unserialize($savedData);
+var_dump($blackBox2);
+echo $blackBox2->SomeMethod().PHP_EOL;
+echo $blackBox2->concatenate('first text ', 'second text');
