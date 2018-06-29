@@ -5,6 +5,7 @@
  * Date: 29.06.18
  * Time: 14:25
  *
+ *
  */
 require_once ('Human3.php');
 $obj = new Human3("Vasya",25);
