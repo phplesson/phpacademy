@@ -4,7 +4,6 @@
  * User: vladislavkogaj
  * Date: 29.06.18
  * Time: 14:38
- *
  */
 
 require_once ('Human5.php');

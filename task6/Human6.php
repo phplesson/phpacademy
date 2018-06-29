@@ -4,7 +4,6 @@
  * User: vladislavkogaj
  * Date: 29.06.18
  * Time: 15:17
- *
  */
 
 class Human6{
