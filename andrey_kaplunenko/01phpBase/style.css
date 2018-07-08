@@ -142,6 +142,19 @@ p.maincontent {
     font-family: "Arial Narrow", Helvetica, Arial, sans-serif;
     font-size: 16px;
     color: #303030;
+    margin-left: 10px; /* Отступ слева */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+p.intable {
+    font-family: "Arial Narrow", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: #303030;
+    margin-bottom: 15px; /* Отступ снизу */
+}
+
+ul {
+	margin-bottom: 20px; /* Отступ снизу */
 }
 
 ul li {
@@ -187,6 +200,14 @@ p.bold {
 h2.headers {
     font-family: "Arial Narrow", Helvetica, Arial, sans-serif;
     font-size: 22px;
+    color: #303030;
+    font-weight: bold;
+    text-shadow: 3px 3px 9px #909090;
+}
+
+h3.headers {
+    font-family: "Arial Narrow", Helvetica, Arial, sans-serif;
+    font-size: 16px;
     color: #303030;
     font-weight: bold;
     text-shadow: 3px 3px 9px #909090;
