@@ -3,10 +3,30 @@
  * Created by PhpStorm.
  * User: andrey
  * Date: 7/10/18
- * Time: 5:32 PM
+ * Time: 3:24 PM
  */
-return [
-    'param1' => 'value 1',
-    'param2' => 'value 2',
-    'param3' => 'value 3',
-];
+
+interface IConfig {
+    public function getValue($key);
+}
+
+class Configuration implements IConfig {
+    private static $instance = null;
+    private $configArray=array();
+
+    public function getValue($key) {
+        $this->configArray = include './settings.php';
+        return ($this->configArray[$key]);
+    }
+
+    public static function getInstance() {
+    if (self::$instance === null) {
+        self::$instance = new self();
+    }
+    return self::$instance;
+    }
+
+    private function __clone() {}
+    private function __construct() {}
+    private function __wakeup(){}
+}
