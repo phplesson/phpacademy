@@ -33,5 +33,5 @@ class DBConnection extends mysqli {
     private function __wakeup(){}
 }
 
-$DBConnect = DBConnection::getInstance();
-var_dump($DBConnect);
+//$DBConnect = DBConnection::getInstance();
+//var_dump($DBConnect);
