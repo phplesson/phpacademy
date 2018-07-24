@@ -5,8 +5,158 @@
     <meta name="description" content="Alex Pshegodskiy work application">
     <meta name="author" content="Alex Pshegodskiy">
     <title>Резюме</title>
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+          integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <style>
+        .a4-wrapper {
+            background: white;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 0.5cm;
+            box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+            width: 21cm;
+        }
+
+        .content-wrapper {
+            padding: 30px 50px 30px 50px;
+        }
+
+        header {
+            overflow: auto;
+        }
+
+        .target-text {
+            margin-top: 0px;
+            padding-right: 10px;
+        }
+
+        .about-me-container {
+            overflow: auto;
+        }
+
+        .my-target {
+            width: 413px;
+            float: left;
+        }
+
+        .my-photo {
+            float: right;
+            width: 280px;
+            height: 280px;
+        }
+
+        .user-photo {
+            border-radius: 5px;
+        }
+
+        .name {
+            display: inline-block;
+            margin-top: 0;
+        }
+
+        nav {
+            display: inline-block;
+            float: right;
+        }
+
+        .fa-ul {
+            text-align: right;
+        }
+
+        a {
+            color: #000000;
+            opacity: 0.6;
+            text-decoration: none;
+        }
+
+        a:hover {
+            opacity: 1;
+            color: blue;
+        }
+
+        .secondary-text {
+            color: #000000;
+            opacity: 0.6;
+        }
+
+        hr {
+            margin-top: 25px;
+        }
+
+        ul.skills-list {
+            padding-left: 0px;
+            list-style-type: none;
+            columns: 2;
+            -webkit-columns: 2;
+            -moz-columns: 2;
+        }
+
+        li.skills-list {
+            margin-bottom: 20px;
+        }
+
+        li.skills-list:before {
+            content: "• ";
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+
+        .dates {
+            margin-bottom: 0px;
+        }
+
+        h3 {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        .job-name {
+            color: #5970ff;
+            opacity: 1;
+        }
+
+        .job-overview {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        @media print {
+            /* Стиль для печати */
+            *, .a4-wrapper {
+                font-family: Times, 'Times New Roman', serif; /* Шрифт с засечками */
+                color: #000; /* Черный цвет текста */
+                opacity: 1.0;
+                box-shadow: none;
+            }
+
+            .print-brake {
+                page-break-after: always;
+            }
+
+            .secondary-text, .job-name, a {
+                color: #000000;
+                opacity: 1;
+            }
+
+            hr {
+                display: none;
+            }
+
+            h2 {
+                margin: 0;
+            }
+
+            h3 {
+                margin: 0;
+                font-size: 1em;
+            }
+        }
+
+        @page {
+            size: A4;
+        }
+
+    </style>
 </head>
 <body>
 <div class="a4-wrapper">
@@ -24,22 +174,25 @@
                     <li><a href="mailto:lexkiev@ukr.net" title="Напишите мне!">lexkiev@ukr.net&nbsp;<i
                             class="fa fa-envelope blue" aria-hidden="true"></i></a></li>
                     <li><a href="https://vk.com/lrunfree" target="_blank" title="Мой профиль VK.com">vk.com&nbsp;<i
-                            class="fa fa-vk blue" aria-hidden="true"></i></a></li>
+                            class="fab fa-vk blue" aria-hidden="true"></i></a></li>
                     <li><a href="https://github.com/lexKiev" target="_blank" title="Мой профиль GitHub">GitHub&nbsp;<i
-                            class="fa fa-git blue" aria-hidden="true"></i></a></li>
+                            class="fab fa-git blue" aria-hidden="true"></i></a></li>
                 </ul>
             </nav>
 
             <div class="about-me-container">
                 <div class="my-target">
-                    <p class="secondary-text target-text">Моя цель: получить работу в качестве разработчика в крупной IT
-                        компании,
-                        чтобы на практике применить свой опыт и навыки и совершенствовать их. <br> <br>
+                    <p class="secondary-text target-text">Моя цель: получить работу в качестве разработчика интересном и
+                        развивающемся IT
+                        проекте,
+                        чтобы на практике применить свой опыт и навыки, а самое главное - постоянно совершенствовать их.
+                        <br> <br>
                         Моя жизненная позиция – идти всегда вперед, даже если я и не совсем уверен иногда в исходе
                         начатого дела! Но как говорят люди: движение – это жизнь, а результат – это следствие тех шагов,
                         которые мы делаем сами!</p>
                 </div>
-                <div class="my-photo"><img src="img/L3qE9lvu820.jpg" class="user-photo" alt="photo" width="280"></div>
+                <div class="my-photo"><img src="https://pictr.com/images/2018/07/25/2eVZP.jpg" class="user-photo"
+                                           alt="photo" width="280"></div>
             </div>
 
         </header>
@@ -51,43 +204,114 @@
                 <ul class="skills-list">
                     <li class="skills-list blue"><span class="secondary-text">Базовые знания HTML/CSS</span></li>
                     <li class="skills-list blue"><span
-                            class="secondary-text">Базовые знания PHP (процедурный стиль)</span></li>
-                    <li class="skills-list blue"><span class="secondary-text">Начальные знания ООП</span></li>
-                    <li class="skills-list blue"><span class="secondary-text">Начальные знания фреймворка Laravel</span>
+                            class="secondary-text">Базовые знания PHP</span></li>
+                    <li class="skills-list blue"><span class="secondary-text">Базовые знания ООП</span></li>
+                    <li class="skills-list blue"><span
+                            class="secondary-text">Базовые знания фреймворка Laravel 5.6</span>
                     </li>
-                    <li class="skills-list blue"><span class="secondary-text">Навыки использования персонального компьютера на уровне системного администратор</span>
+                    <li class="skills-list blue"><span class="secondary-text">Базовые знания JS, Jquery, Ajax</span>
+                    </li>
+                    <li class="skills-list blue"><span class="secondary-text">Базовые знания MySQL</span>
+                    </li>
+                    <li class="skills-list blue"><span class="secondary-text">Навыки использования персонального компьютера на уровне системного администратора</span>
+                    </li>
+                    <li class="skills-list blue"><span class="secondary-text">Знания английского языка на уровне Upper Intermediate, свободное чтение  и понимание технической документации</span>
                     </li>
                 </ul>
                 <hr>
             </section>
+            <div class="print-brake"></div>
             <section class="experience">
                 <h2>Опыт работы</h2>
-                <span class="secondary-text">11.08.2009 – 01.09.2015</span>
+                <span class="secondary-text">01.06.2018 – настоящее время </span>
                 <br>
-                <h3><a href="https://strelatrans.com.ua/" class="job-name">Системный администратор</a> <span
+                <h3><a href="#" class="job-name">PHP developer</a> <span
+                        class="secondary-text">/ "NewMax LLC", Киев</span></h3>
+                <br>
+                <ul class="secondary-text job-overview">
+                    <li>Занимался разработкой системы контроля работы и управления майнинговыми фермами и ASIC
+                        майнерами.
+                    </li>
+                    <li>Углубил знания PHP 7.2</li>
+                    <li>Получил базовые навыки работы с Laravel 5.6</li>
+                    <li>Получил начальные навыки ООП</li>
+                    <li>Освоил использование многопоточности в PHP с помощью расширения Pthreads и компиляции
+                        интерпретатора php с подключением этого модуля и собственной конфигурацией
+                    </li>
+                    <li>Получил навыки использования ajax запросов для динамического обновления данных на странице</li>
+                    <li>Получил опыт работы с PHP CLI</li>
+                </ul>
+                <br>
+                <span class="secondary-text">14.02.2017 – 29.05.2018 </span>
+                <br>
+                <h3><a href="https://strelatrans.com.ua/" class="job-name">Junior PHP developer</a> <span
                         class="secondary-text">/ "Strela Trans Group", Киев</span></h3>
-                <p class="secondary-text job-overview">Установка и обслуживание компьютерной и офисной техники,
-                    оргтехники, внутренней АТС.
-                    Обеспечение безошибочной работы системного программного обеспечения (ОС Windows, Windows Server).
-                    Обеспечение работоспособности и безопасности сети компании.
-                    Установка, настройка и обновление офисного и прикладного ПО (MS Office, 1С и т.п.).
-                    Обеспечение резервного копирования данных (а также восстановление данных при необходимости).
-                    Техническая поддержка и помощь пользователей.</p>
                 <br>
-                <span class="secondary-text">02.11.2015 – 05.03.2017 </span>
+                <ul class="secondary-text job-overview">
+                    <li>Создание backend части приложения с использованием PHP 5.6, JS, Jquery, Ajax</li>
+                    <li>Разработка функционала кабинета клиента с возможностью отслеживания перемещения посылок, учета и
+                        регистрации почтовых отправлений
+                    </li>
+                    <li>Разработка системы складского приема и аудита посылок</li>
+                    <li>Проектирование базы данных MySQL</li>
+                    <li>Получил хорошую практику программирования на PHP, познакомился с концепцией MVC.</li>
+                    <li>Занимался настройкой и конфигурированием сервера в дата-центре Hetzner, развертыванием и
+                        конфигурированием web сервера Apache
+                    </li>
+                </ul>
+                <br>
+                <span class="secondary-text">02.11.2014 – 01.01.2017 </span>
                 <br>
                 <h3><a href="https://fishki.ua/" class="job-name">SEO-Оптимизатор, Администратор интернет магазина</a>
                     <span class="secondary-text">/ "Мобiльнi Фiшки", Киев</span></h3>
-                <p class="secondary-text job-overview">Внутренняя оптимизация сайта;
-                    Контроль выполнения заданий копирайтерами;
-                    Анализ стратегий продвижения конкурентов;
-                    Технический аудит сайта;
-                    Администрирование CRM;
-                    Создание посадочных страниц;
-                    Обновление контента;
-                    SEO оптимизация согласно ТЗ от агентств</p>
+                <br>
+                <ul class="secondary-text job-overview">
+                    <li>Администрирование CMS Bitrix</li>
+                    <li>Администрирование CRM Bitrix24.</li>
+                    <li>Внутренняя SEO-оптимизация сайта.</li>
+                    <li>Контроль выполнения заданий копирайтерами.</li>
+                    <li>Анализ стратегий продвижения конкурентов.</li>
+                    <li>Технический аудит сайта.</li>
+                    <li>Создание посадочных страниц.</li>
+                    <li>Обновление контента.</li>
+                </ul>
+                <br>
+                <span class="secondary-text">11.08.2009 – 01.09.2014</span>
+                <br>
+                <h3><a href="https://strelatrans.com.ua/" class="job-name">Системный администратор</a> <span
+                        class="secondary-text">/ "Strela Trans Group", Киев</span></h3>
+                <br>
+                <ul class="secondary-text job-overview">
+                    <li>Установка и обслуживание компьютерной и офисной техники,
+                        оргтехники, внутренней АТС.
+                    </li>
+                    <li>Обеспечение безошибочной работы системного программного обеспечения (ОС Windows, Windows
+                        Server).
+                    </li>
+                    <li>Обеспечение работоспособности и безопасности сети компании.</li>
+                    <li>Установка, настройка и обновление офисного и прикладного ПО (MS Office, 1С и т.п.).</li>
+                    <li> Обеспечение резервного копирования данных (а также восстановление данных при необходимости).
+                    </li>
+                    <li>Техническая поддержка и помощь пользователям.</li>
+                </ul>
+                <br>
+                <span class="secondary-text">21.10.2007 – 01.07.2009</span>
+                <br>
+                <h3><a href="https://www.antonov.com/" class="job-name">Системный администратор</a> <span
+                        class="secondary-text">/ "АНТК им. Антонова", Киев</span></h3>
+                <br>
+                <ul class="secondary-text job-overview">
+                    <li>Обслуживание и ремонт парка пользовательских ПК до 100-а машин, диагностика и сетевой ремонт.
+                    </li>
+                    <li>Работа с ОС MS Windows Server.</li>
+                    <li>Работа с Active Directory: тонкая настройка прав доступа пользователей.</li>
+                    <li>Конфигурирования компонентов аппаратной архитектуры РС и периферийного оборудования.</li>
+                    <li> Работы по настройке, наладке, обслуживанию офисной техники.</li>
+                    <li>HelpDesk, ServiceDesk. Работа в команде по поддержке пользователей.</li>
+                </ul>
                 <hr>
             </section>
+            <div class="print-brake"></div>
             <section class="education">
                 <h2>Образование</h2>
                 <p class="dates">
@@ -95,22 +319,47 @@
                     <br>
                 <h3><span class="job-name">Среднее образование</span> <span class="secondary-text">/ СОШ №164 им. М. Кирпоноса,  Киев</span>
                 </h3>
-                <span class="secondary-text">Describe your responsibilities and achievements in terms of impact and results. Use examples, but keep it short.</span>
                 </p>
                 <br>
                 <p class="dates">
-                    <span class="secondary-text">11.08.2010 – 01.09.2014</span>
+                    <span class="secondary-text">01.09.2005 – 01.05.2008</span>
+                    <br>
+                <h3><span class="job-name">Среднее-специальное образование</span> <span class="secondary-text">/ Высшее профессиональное училище сервиса и дизайна (КВПУСиД),  Киев</span>
+                </h3>
+                <span class="secondary-text">Специальность - оператор ПК</span>
+                </p>
+                <br>
+                <p class="dates">
+                    <span class="secondary-text">01.07.2007 – 29.07.2009</span>
+                    <br>
+                <h3><span class="job-name">Дополнительное образование</span> <span class="secondary-text">/ Компьютерная академия "ШАГ",  Киев</span>
+                </h3>
+                <span class="secondary-text">Направление - С++ разработчик</span>
+                </p>
+                <br>
+                <p class="dates">
+                    <span class="secondary-text">11.08.2010 – 02.09.2014</span>
                     <br>
                 <h3><span class="job-name">Высшее образование</span> <span class="secondary-text">/ Киевский Международный Университет КМУ,  Киев</span>
                 </h3>
                 <span class="secondary-text">Факультет международных отношений. Специальность - Международный юрист</span>
                 </p>
+                <br>
+                <p class="dates">
+                    <span class="secondary-text">29.04.2018 – настоящее время</span>
+                    <br>
+                <h3><span class="job-name">Дополнительное образование</span> <span class="secondary-text">/ PHP Academy / DITS,  Киев</span>
+                </h3>
+                <span class="secondary-text">Направление - Fullstack Developer</span>
+                </p>
+                <br>
                 <hr>
             </section>
             <section class="activities">
                 <h2>Увлечения</h2>
                 <p class="secondary-text"> Интересуюсь компьютерами и сферой высоких технологий в целом, люблю
-                    путешествовать, изучаю историю разных стран, увлекаюсь тяжелой музыкой</p>
+                    путешествовать, изучаю историю разных стран, увлекаюсь тяжелой музыкой.
+                    Интересуюсь и увлекаюсь историей электроники, ретро техникой времен СССР.</p>
             </section>
         </main>
     </div> <!-- content wrapper end-->
